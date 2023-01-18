@@ -1,5 +1,5 @@
 ---
-title: Reuired Field Names Standards
+title: Required Field Names Standards
 date: today
 author: Contributors
 ---
