@@ -1,6 +1,6 @@
 # Standards for Archive Image and Data Storage
 
-The field of connectomics overlaps heavily with other neuroimaging domains but has particular aspects of data scale, proofreading workflows, and second data products which require custom approaches. We aim to leverage existing standards as much as possible, and aim to promote cross-archive and project compatibility. We recognize, however, that individual laboratories and software projects have significant investments in tools and formats and may need to maintain these approaches. However, adhering to the recommended standards on publication/export of the data products can greatly enhance interoperability and reuse in the community.
+The field of connectomics overlaps heavily with other neuroimaging domains but has particular aspects of data scale, proofreading workflows, and secondary data products which require custom approaches. We aim to leverage existing standards as much as possible, and aim to promote cross-archive and project compatibility. We recognize, however, that individual laboratories and software projects have significant investments in tools and formats and may need to maintain these approaches. However, adhering to the recommended standards on publication/export of the data products can greatly enhance interoperability and reuse in the community.
 
 ## General Desirable Properties of Image/Data Formats
 * Find common, non-evolving formats
@@ -9,7 +9,7 @@ The field of connectomics overlaps heavily with other neuroimaging domains but h
 * Consider linkages between imagery data and other data types
 * Fundamental concepts of sharding should be followed
 * Consider both the individual laboratory and the needs of a community user
-* Versioned releases likely sufficient for most seconday analysis
+* Versioned releases likely sufficient for most secondary analysis
 
 ## Suggested Image Formating Options
 * OME-Zarr (version 2)
@@ -19,7 +19,7 @@ The field of connectomics overlaps heavily with other neuroimaging domains but h
 	* Links like https://pythontic.com/hdf5/h5py/links are not yet supported but may be in an extension
 
 * Precomputed 
-	* Support in widely used nueroglancer
+	* Support in widely used Neuroglancer
 	* Precompute supports mesh/annotation formats- no clear alternative yet
 	* However, for imaging data, may be replaced by Zarr version 3
 
