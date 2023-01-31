@@ -1,0 +1,57 @@
+@startuml
+class DataCite {
+DataCite provides DOIs if required metadata 
+fields and a URL are provided
+https://datacite.org
+}
+
+class OME {
+Open Microscopy Environment
+https://docs.openmicroscopy.org/ome-model/latest
+}
+
+class 3D_MMS {
+DORY
+https://doryworkspace.org
+}
+
+class Essential_3D_MMS {
+}
+
+class NeMO {
+BdBag?
+}
+
+class BIL {
+Required metadata largely 
+represented in Essential_3D_MMS; 
+Optional metadata in 3D_MMS.
+}
+
+class BKP_Data_Collection {
+}
+
+class Data_Wrangling {
+}
+
+class Proposed {
+}
+
+class New_EM {
+}
+
+class New_XRM {
+}
+
+
+3D_MMS --> Essential_3D_MMS: metadata\ndefinitions
+OME --> 3D_MMS: metadata\ndefinitions
+DataCite --> 3D_MMS: metadata\ndefinitions
+
+Essential_3D_MMS --> Proposed: required\nmetadata\ndefinitions
+3D_MMS --> Proposed: optional\nmetadata\ndefinitions
+New_EM --> Proposed: EM\nmetadata\ndefinitions
+New_XRM --> Proposed: XRM\nmetadata\ndefinitions
+
+
+@enduml
