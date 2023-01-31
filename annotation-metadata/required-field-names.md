@@ -14,10 +14,10 @@ author: Contributors
 
 | Field Name       | Definition  | Allowed Values |
 | ---------------- | ----------- | -------------- |
-| contributorName  |  Person (last name, first name) or organization (e.g., research group, department, institution) contributing to or responsible for the project, but does not include funders of the project. If a contributor has more than one contributorType, use a separate line for each.  | The Johns Hopkins University Applied Physics Laboratory, REDD/RQA, JHU/APL Main Facility |
-| Creator | Main researchers involved in producing the data. There must be at least one creator. | RQA JHU/APL Neuroscience Group |
-| contributorType | Categorization of the role of the contributor. Recommended: ProjectLeader (for principal investigator), ResearchGroup (for lab, department, or division). | Will Gray Roncal: RoleName<br/>  Erik C. Johnson: RoleName<br/> Dymon S. Moore: RoleName<br/> Morgan S. Shanchez: RoleName<br/> Jordan K. Matelsky: RoleName<br/> Miguel E. Wimbish: RoleName<br/> Nicole K. Guittari: RoleName | | 
-| nameType | Type of contributorName | JHU/APL Neuroscience Group (RQA) and CIRCUIT (R1R) |
+| contributorName  |  Person (last name, first name) or organization (e.g., research group, department, institution) contributing to or responsible for the project, but does not include funders of the project. If a contributor has more than one contributorType, use a separate line for each.  | String |
+| Creator | Main researchers involved in producing the data. There must be at least one creator. | String |
+| contributorType | Categorization of the role of the contributor. Recommended: ProjectLeader (for principal investigator), ResearchGroup (for lab, department, or division). | String | 
+| nameType | Type of contributorName | String |
 ---
 ---
 <br/><br/> 
