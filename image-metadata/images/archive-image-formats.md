@@ -12,22 +12,22 @@ The field of connectomics overlaps heavily with other neuroimaging domains but h
 * Versioned releases likely sufficient for most secondary analysis
 
 ## Suggested Image Formating Options
-* OME-Zarr (version 2)
+* [OME-Zarr (version 2)](https://github.com/ome/ome-zarr-py)
 	* Support for sharding underway, anticipating
 	* Tools and archives already supporting
 	* Version 3 underway
 	* Links like https://pythontic.com/hdf5/h5py/links are not yet supported but may be in an extension
 
-* Precomputed 
+* [Precomputed](https://github.com/google/neuroglancer/tree/master/src/neuroglancer/datasource/precomputed) 
 	* Support in widely used Neuroglancer
 	* Precompute supports mesh/annotation formats- no clear alternative yet
 	* However, for imaging data, may be replaced by Zarr version 3
 
-* N5 
+* [N5](https://github.com/saalfeldlab/n5) 
 	* Sharding will be required
 	* Overlaps with Zarr team
 
-* Tensorstore
+* [Tensorstore](https://google.github.io/tensorstore/)
 	* Similar to sharding- smaller number of large files, provides a view of database with lots of small objects. Preserves random reads and writes. 
 	* For EM volumentric data- not a clear advantage over sharded zarr. But for other formats maybe advantageous
 	* Could be considered for meshes, skeletons and annotations

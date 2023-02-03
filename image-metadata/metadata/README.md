@@ -1,7 +1,7 @@
 # Draft Image and Experimental Metadata Standards for EM and XRM Connectomics Community
 In this folder, you will find
-* A draft metadata description: imaging-metadata-draft.md, imaging-metadata-draft.plantuml, imaging-metadata-draft.png
-* Reference material comparing the proposed draft to related standards efforts: standards-development
+* A draft metadata description: [schema](imaging-metadata-draft.plantuml), [diagram](imaging-metadata-draft.png), [description](imaging-metadata-draft.md)
+* Reference material comparing the proposed draft to related standards efforts: [standards-development](standards-development)
 
 ## Extant schemas examined
 * vEM community draft metadata standards
