@@ -18,6 +18,10 @@ https://doryworkspace.org
 class Essential_3D_MMS {
 }
 
+class BossDB {
+Existing BossDB data model
+}
+
 class NeMO {
 BdBag?
 }
@@ -26,12 +30,6 @@ class BIL {
 Required metadata largely 
 represented in Essential_3D_MMS; 
 Optional metadata in 3D_MMS.
-}
-
-class BKP_Data_Collection {
-}
-
-class Data_Wrangling {
 }
 
 class Proposed {
@@ -48,6 +46,7 @@ class New_XRM {
 OME --> 3D_MMS: metadata\ndefinitions
 DataCite --> 3D_MMS: metadata\ndefinitions
 
+BossDB --> Proposed: required\nmetadata\ndefinitions
 Essential_3D_MMS --> Proposed: required\nmetadata\ndefinitions
 3D_MMS --> Proposed: optional\nmetadata\ndefinitions
 New_EM --> Proposed: EM\nmetadata\ndefinitions
