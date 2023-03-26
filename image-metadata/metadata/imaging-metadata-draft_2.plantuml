@@ -43,31 +43,19 @@ note right of Project: Need to review full diagram with special attention to dat
 '
 '   Project
 '
-class Projects {
+class Project {
   *ID:               String
+
   *Name:             String
   *Title:            String
   *ShortTitle:       String
-  *Description:      String
-  *Protocol:         String
-  *DossDBURIs:       String
-  *GrantNumber:      String
-  *GrantName:        String
-  *PublicationDOI:   String
   *Keywords:         [String]
   *Description:      String
   *Year:             Date
-  *License:          [License]
-  *Keywords:         [String]
   *Public:           Boolean
-  *Links:            [Link
   *Species:          [Species]
   *Publications:     [Publication]
-  *Contributor:      [Contributor]
-  *DateCreated:      Date
-  *DateModified:     Date
-
- Links:            [Link]
+  Links:            [Link]
   *UniqueIdentifier: String
   *License:          [License]
   *Contributor:      [Contributor]
@@ -140,24 +128,16 @@ Project::Technique              *-- Technique
 '
 '   Collection
 '
-class Collections {
+class Collection {
   *ID:           String
   *Name:         String
-  *BossDBURI:    String
-  *Title:        String
   *Description:  String
   *Public:       Boolean
   *Creator:      [User]
   *Contributors: [Contributor]
   *DateCreated:  Date
-  *DateModified: Date
+  DateModified: Date
   *License:      [License]
-  *Organization  String
-  *GrantNumber:  String
-  *R24Name:      String
-  *R24Link:      String
-  *Version:      Integer
-
   Acknowledgements: String
   DOI:          DOI
   Version:      String
@@ -185,14 +165,9 @@ Collection::Experiments     *-- Experiment
 '
 '   Experiment
 '
-class Experiments {
+class Experiment {
   *ID:               String
-  *Experiment Name:             String
-  *BCDCCollection:   String
-  *BossDBURI:        String
-  *SampleType:       String
-  *SpeciesCommonName:String
-  *SpeciesTaxonomyID:String
+  *Name:             String
   *Description:      String
   *Public:           Boolean
   *Creator:          [User]
@@ -235,17 +210,13 @@ Experiment::Channels        *-- Channel
 '
 '   Channel
 '
-class Channels {
+class Channel {
 '   Note that this corresponds to BossDB channel right now. May not be best for light microscopy. 
 '   At present, remains a BossDB channel for initial discussion. Light Microscopy channel is-a channel (in BossDB sense).
 '   Channels in other projects may represent other types of data.
   *ID:               String
   *Name:             String
-  *BCDCCollection:   String
-  *BossDBURI:        String
-  
   *Description:      String
-  *ArchiveURL:       String
   *Public:           Boolean
   *Creator:          [User]
   *Contributors:     [Contributor]
@@ -290,7 +261,22 @@ Channel::LightMicroscopyAttributes *-- LightMicroscopySpecific
 '   Supporting classes
 '   ------------------------------
 
-'
+class Identifiers{
+  *ORCID:                     
+  *Grants:          string              
+  *funderID:          string              
+  *Organization:          string              
+  *Publications:          string              
+  *Contributors:          string              
+  *Datasets:          string                    
+  *
+}
+
+class BrainLocation {
+    *Name:           String
+    *Location:       DataLocation
+}
+
 '   BrainLocation
 '   Mandatory attributes: Neither Name nor Location were mandatory. Are now.
 class BrainLocation {
@@ -466,10 +452,10 @@ enum Species {
 '   DataType
 '
 enum DataType {
-  Volumetric Imagery
-  Volumetric Segmentation
+  Imagery
+  Segmentation
   Skeletons
-  Connectome Graph
+  Connectome
 }
 
 '
