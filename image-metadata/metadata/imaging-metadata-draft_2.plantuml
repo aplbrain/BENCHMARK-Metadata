@@ -581,6 +581,10 @@ enum ImagingModalitySpecific {
   sAT 
   mAT 
   cryo-FIB_SEM
+  REM
+  STM
+  AET
+  AFM
 }
 
 '
