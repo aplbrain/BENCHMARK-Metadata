@@ -1,0 +1,251 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam classBackgroundColor LightGoldenRodYellow
+skinparam classarrows red
+skinparam classFontName Menlo
+skinparam colors yellow
+skinparam ActorBorderColor red
+skinparam classborderColor darkred
+left to right direction
+
+
+
+title Standardization Effort Version 1.1
+/'
+The axon is connected to the Presynaptic 
+sending a chemical to be released into the 
+Postsynaptic.
+'/
+Cell ---[#darkred]-* Soma
+
+Soma -[#darkred]-* Spine
+Soma ------[#darkred]-* Axon
+Soma -[#darkred]-* Dendrite
+Soma -[#darkred]-* Cilia 
+
+Dendrite -[#darkred]-* Shaft
+Dendrite -[#darkred]-* Spine
+
+Axon -[#darkred]-* Axon_Initial_Segment
+Axon -[#darkred]-* Bouton
+
+Gap_Junctions -[#darkred]-* Axon
+Myelin -[#darkred]-* Axon
+
+Synapse -[#darkred]-* Axon
+Synapse -[#darkred]-* Axon_Initial_Segment
+Synapse -[#darkred]-* Bouton
+Synapse ---[#darkred]-* Spine
+Synapse ---[#darkred]-* Shaft
+Synapse -[#darkred]-* Soma 
+
+Spine_Apparatus -[#darkred]* Spine
+
+Organelles -[#darkred]-* Gap_Junctions
+Organelles -[#darkred]-* Nucleus
+Organelles -[#darkred]-* Mitochondria
+Organelles -[#darkred]-* SynapticVesicle
+Organelles -[#darkred]-* Myelin
+Organelles -[#darkred]-* Cleft
+Organelles -[#darkred]-* Spine_Apparatus
+
+Nucleus -[#darkred]-* Soma
+
+Cleft -[#darkred]-* Synapse 
+
+Mitochondria -[#darkred]-* All_cell_compartments
+
+
+class Cell{
+	*Cell Types:
+	Neuron : boolean, 
+	Glia : boolean
+	
+	*Neuron Types:
+	sensory_neurons: enum,
+	motor_neurons : enum,
+	interneurons: enum
+
+	*Glia Types: 
+		astrocytes : enum,
+		microglia : enum,
+		oligodendrocyte : enum
+
+	*Regions of Interest:
+	layer : enum,
+	brain_regions : enum,
+	cylinder : enum
+
+	*Optional Properties:
+		multipolar : enum,
+		bipolar : enum,
+		unipolar : enum,
+		anaxonic : enum,
+		number_of_blood_vessel_cells : enum,
+		interneuron-type : enum,
+        pyramidal : enum,
+		c-shaped : enum,
+        spiny-stellate : enum,
+        excitatory/spiny-with-atypical-tree : enum,
+        sparsely-spiny : enum,
+        lots-of-spines : enum,
+        possible-interneuron : enum,
+        web-like-interneuron : enum,
+        lot-of-axon : enum,
+        EIRatio : enum,
+		precurser : enum
+}
+class Bouton{
+
+}
+
+class Mitochondria{
+*Optional Properties:
+lipids : enum,
+proteins : enum
+}
+
+
+class Dendrite{
+*Dendrite Properties: 
+		apical_dendrite : boolean,
+		basal_dendrite : boolean,
+		base_neuron_id : enum
+
+*Synapse Site:
+		post_synaptic_partner : 
+			neuron_id : enum,
+			type : enum,
+			class_label : str
+
+	*Optional Dendrite Properties:
+		number_dendriteskeleton_nodes : enum,
+		number_dendriticspineskeleton_nodes : enum,
+		number_ciliumskeleton_nodes : enum,
+		dendritic_shaft : boolean,
+		dendritic_spine : boolean
+--
+    *location: 
+        x : enum
+        y : enum
+        z : enum
+   
+    *bounding_box: 
+        start : 
+            x : enum
+            y : enum
+            z : enum
+       
+      *size: 
+            x : enum
+            y : enum
+            z : enum
+} 
+
+class Spine_Apparatus{
+
+}
+
+
+class Spine{
+--
+*Optional Properties:
+number_of_spines: enum,
+spine_protrusions: string
+}
+
+
+class Soma{
+*Optional Properties:
+	cell body: boolean
+
+}
+
+class Synapse{
+	*Chemical: 
+		presynaptic : boolean,
+		postsynaptic : boolean
+
+	*Electrical: 
+		gap_junction: enum
+	
+	*Optional Properties:
+	synapse_type: str,
+	number_output_synapses : enum,
+	number_input_synapses : enum,
+	number_excitatory_synapses : enum,
+	number_inhibitory_synapses : enum,
+	number_outgoing_synapses : enum,
+	number_incoming_synapses : enum,
+	number_incomingexcitatory_synapses : enum,
+	number_incominginhibitory_synapses : enum
+}
+
+class Organelles{
+	*Ribosomes : boolean,
+    *Endoplasmic_Reticulum : boolean,
+	*Mitochondria : boolean,
+	*Golgi_Apparatus : boolean,
+	*Spine_Apparatus : boolean,
+    *SynapticVesicle : boolean,
+	*Nucleus : boolean,
+	*Gap_Junctions : boolean,
+	*Myelin : boolean,
+	*Plasma Membrane : boolean
+
+}
+class Nucleus{
+*Optional Properties:
+nucleolus : boolean
+}
+
+
+SynapticVesicle -[#darkred]-* Synapse
+Spine_Apparatus *-[#darkred]- Organelles
+
+
+class Axon{
+	*Axon Properties: 
+	axon_terminal  : boolean,
+	myelinated_axon : boolean,
+	base_neuron_id : enum
+
+*Synapse Site:
+		pre_synaptic_site : enum,
+		neuron_id : enum,
+		type : enum,
+		class_label : str
+
+*Optional Axon Properties:
+	number_of_axons : enum,
+	number_axonskeleton_nodes : enum,
+	number_ciliumskeleton_nodes : enum,
+	number_axoninitialsegmentskeleton_nodes : enum,
+	number_myelinatedaxonskeleton_nodes : enum
+--
+    *location: 
+        x : enum
+        y : enum
+        z : enum
+   
+    *bounding_box: 
+        start : 
+            x : enum
+            y : enum
+            z : enum
+       
+       *size: 
+            x : enum
+            y : enum
+            z : enum
+} 
+class SynapticVesicle{
+
+} 
+
+class Axon_Initial_Segment{
+	*Optional Properties:
+	myelin: boolean
+
+}
+@enduml
