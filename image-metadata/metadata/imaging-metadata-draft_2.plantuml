@@ -46,7 +46,7 @@ note right of Project: Need to review full diagram with special attention to dat
 class Project {
   *ID:               String
 
-  *Name:             String
+  *Name:             String 
   *Title:            String
   *ShortTitle:       String
   *Keywords:         [String]
@@ -383,8 +383,8 @@ class Funding {
 class Contributor {
 ' Can a singular Contributor have multiple names and emails?
 ' So -- is this String or [String]? [mah2022.06.07]
-  *Name: [String]
-  *Email: [String]
+  *Name: [String] 
+  *Email: [String] 
   .. Additions ..
   Creator: Boolean;
   ContributorType: Enum (ContactPerson, DataCollector, DataCurator, ProjectLeader,\n ProjectManager, ProjectMember, RelatedPerson, Researcher, ResearchGroup, Other)
@@ -398,6 +398,15 @@ class Contributor {
   AffiliationIdentifier: Enum (GRID, ISNI, ORCID, ROR, RRID)
   AffiliationIdentifierScheme: Enum (GRDI, ISNI, ORCID, ROR, RRID, Other)
 }
+
+Speciemen
+class Contributor {
+  * Species:  String
+  * Age:  integer
+  * Sex:  String
+  * taxonomyCode
+}
+
 
 '
 '   Technique
