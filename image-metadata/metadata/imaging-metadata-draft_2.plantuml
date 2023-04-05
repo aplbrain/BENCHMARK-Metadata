@@ -399,14 +399,16 @@ class Contributor {
   AffiliationIdentifierScheme: Enum (GRDI, ISNI, ORCID, ROR, RRID, Other)
 }
 
-Speciemen
-class Contributor {
+'
+'   Speciemen
+'
+
+class Speciemen {
   * Species:  String
   * Age:  integer
   * Sex:  String
   * taxonomyCode
 }
-
 
 '
 '   Technique
