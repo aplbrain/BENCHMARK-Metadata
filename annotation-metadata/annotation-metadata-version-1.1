@@ -17,30 +17,23 @@ sending a chemical to be released into the
 Postsynaptic.
 '/
 Cell ---[#darkred]-* Soma
-
 Soma -[#darkred]-* Spine
 Soma ------[#darkred]-* Axon
 Soma -[#darkred]-* Dendrite
 Soma -[#darkred]-* Cilia 
-
 Dendrite -[#darkred]-* Shaft
 Dendrite -[#darkred]-* Spine
-
 Axon -[#darkred]-* Axon_Initial_Segment
 Axon -[#darkred]-* Bouton
-
 Gap_Junctions -[#darkred]-* Axon
 Myelin -[#darkred]-* Axon
-
 Synapse -[#darkred]-* Axon
 Synapse -[#darkred]-* Axon_Initial_Segment
 Synapse -[#darkred]-* Bouton
 Synapse ---[#darkred]-* Spine
 Synapse ---[#darkred]-* Shaft
 Synapse -[#darkred]-* Soma 
-
 Spine_Apparatus -[#darkred]* Spine
-
 Organelles -[#darkred]-* Gap_Junctions
 Organelles -[#darkred]-* Nucleus
 Organelles -[#darkred]-* Mitochondria
@@ -48,13 +41,9 @@ Organelles -[#darkred]-* SynapticVesicle
 Organelles -[#darkred]-* Myelin
 Organelles -[#darkred]-* Cleft
 Organelles -[#darkred]-* Spine_Apparatus
-
 Nucleus -[#darkred]-* Soma
-
 Cleft -[#darkred]-* Synapse 
-
-Mitochondria -[#darkred]-* All_cell_compartments
-
+Mitochondria -[#darkred]-* All_Cell_Compartments
 
 class Cell{
 	*Cell Types:
@@ -82,7 +71,7 @@ class Cell{
 		unipolar : enum,
 		anaxonic : enum,
 		number_of_blood_vessel_cells : enum,
-		interneuron-type : enum,
+		interneuron-type : str,
         pyramidal : enum,
 		c-shaped : enum,
         spiny-stellate : enum,
@@ -115,7 +104,7 @@ class Dendrite{
 *Synapse Site:
 		post_synaptic_partner : 
 			neuron_id : enum,
-			type : enum,
+			type : str,
 			class_label : str
 
 	*Optional Dendrite Properties:
@@ -131,7 +120,6 @@ class Dendrite{
         z : enum
    
     *bounding_box: 
-        start : 
             x : enum
             y : enum
             z : enum
@@ -213,7 +201,7 @@ class Axon{
 *Synapse Site:
 		pre_synaptic_site : enum,
 		neuron_id : enum,
-		type : enum,
+		type : str,
 		class_label : str
 
 *Optional Axon Properties:
@@ -229,7 +217,6 @@ class Axon{
         z : enum
    
     *bounding_box: 
-        start : 
             x : enum
             y : enum
             z : enum
