@@ -42,6 +42,7 @@ author: Contributors
 
 | Abbreviation      | Description | 
 | ---------------- | ------------ | 
+| arXiv | archive |
 | GRID | Global Research Identifier Database |
 | ISNI | International Standard Name Identifier |
 | ORCID | Open Researcher and Contributor ID |
