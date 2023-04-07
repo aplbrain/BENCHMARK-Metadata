@@ -261,16 +261,6 @@ Channel::LightMicroscopyAttributes *-- LightMicroscopySpecific
 '   Supporting classes
 '   ------------------------------
 
-class Identifiers{
-  *ORCID:                     
-  *Grants:          string              
-  *funderID:          string              
-  *Organization:          string              
-  *Publications:          string              
-  *Contributors:          string              
-  *Datasets:          string                    
-  *
-}
 
 class BrainLocation {
     *Name:           String
