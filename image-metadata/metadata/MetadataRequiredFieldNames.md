@@ -87,6 +87,6 @@ author: Contributors
 | Authors | The create or writer of a literary | String |
 | RelatedIdentifier |  | String |
 | RelateIdentifierType |  | arXiv, DOI, ISBN, PMID |
-| PMCID | PubMed Central identifiers |  | 
+| PMCID | PubMed Central identifiers are identifiers assigned to publications | String | 
 | relationType | Relation type refers to type of publication (e.g. paper, article, etc.) | IsCitedBy, IsDocumentedBy |
 | Citation | Gives those who read material for other source of where material came from | String |
