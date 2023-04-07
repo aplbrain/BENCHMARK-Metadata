@@ -37,7 +37,7 @@ Personal |
 | ---------------- | ----------- | -------------- |
 | Rights | Refers to the permission and limitations granted to a person or organization | String |
 | rightURI |  | String | 
-| rightsIdentifier |  |  |
+| rightsIdentifier |  | String |
 | DOI | Digital Object Identifier identifiers that are assigned to a digital object. | String |
 
 
@@ -49,7 +49,7 @@ Personal |
 | ---------------- | ----------- | -------------- |
 | fundingEntity | The individual or organization who are providing financial support to a project | String |
 | awardIdentifier | Award identifier provides an award or grant by an awarding organization. | String | 
-| fundingReferenceIdentifier |  |  |
+| fundingReferenceIdentifier |  | GRDI, \n ISNI, ORCID, ROR, RRID, Other |
 | fundingReferenceIdentifierType |  | GRDI, ISNI, ORCID, ROR, RRID, Other |
 | awardTitle |  | String |
 
@@ -63,7 +63,7 @@ Personal |
 | Species | Common organism classification name for the donor organism  | String |
 | Age | Age of the organism | Integer | 
 | Sex | Sex of organism | String |
-| taxonomyCode |A set of names of organisms stored in the public sequence A ten-digit alphanumeric code that classifies each species by a uniquely.  | String |
+| taxonomyCode | A set of names of organisms stored in the public sequence A ten-digit alphanumeric code that classifies each species by a uniquely.  | String |
 
 
 <br/><br/> 
@@ -83,11 +83,11 @@ Personal |
 
 | Field Name       | Definition  | Allowed Values |
 | ---------------- | ----------- | -------------- |
-| Name |  |  |
+| Name |  | String |
 | URI | Uniform Resource Identifier is a of characters that identifies the web page. | String | 
 | Authors | The create or writer of a literary. | String |
-| RelatedIdentifier |  |  |
-| RelateIdentifierType |  |  |
+| RelatedIdentifier |  | String |
+| RelateIdentifierType |  | arXiv, DOI, ISBN, PMID |
 | PMCID | PubMed Central identifiers |  | 
-| relationType |  |  |
-| Citation | Gives those who read material for other source of where material came from |  |
+| relationType |  | IsCitedBy, IsDocumentedBy |
+| Citation | Gives those who read material for other source of where material came from | String |
