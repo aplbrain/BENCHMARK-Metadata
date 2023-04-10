@@ -22,7 +22,9 @@ author: Contributors
 | CLARITY | Clear Lipid-exchanged Acrylamide-hybridized Rigid Imaging / Immunostaining / in situ-hybridization-compatible Tissue hYdrogel |  
 | Cryo_FIB_SEM | Cryogenic focused Ion Beam-Scanning Electron Microscope |
 | FIB_SEM | Focused Ion Beam-scanning Electron microscope |
+| LEEM | Low-Energy Electron Microscopy |
 | LM | Light Microscopy |
+| PEEM | Photoemission Electron Microscopy |
 | mAT | Magneto Acoustic Tomography |
 | MRI | Magnetic Resonance Imaging |
 | REM | Reflection Electron Microscope |
