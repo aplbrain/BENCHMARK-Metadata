@@ -19,7 +19,7 @@ author: Contributors
 | AFM | Atomic Force Microscopy | 
 | AT_TEM | Array Tomography Transmission Electron Microscope |
 | ATUM_SEM | Automated Tape Collecting Ultramicrotome Scanning Electron Microscope | 
-| CLARITY | Clear Lipid-exchanged Acrylamide-hybridized Rigid Imaging / Immunostaining / in situ-hybridization-compatible Tissue hYdrogel |  
+| CLARITY | **C**lear **L**ipid-exchanged **A**crylamide-hybridized **R**igid **I**maging / **I**mmunostaining / in situ-hybridization-compatible **T**issue h**Y**drogel |
 | Cryo_FIB_SEM | Cryogenic focused Ion Beam-Scanning Electron Microscope |
 | FIB_SEM | Focused Ion Beam-scanning Electron microscope |
 | LEEM | Low-Energy Electron Microscopy |
