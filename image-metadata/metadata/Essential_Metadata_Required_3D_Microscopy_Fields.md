@@ -14,11 +14,11 @@ author: Contributors
 
 | Field Name       | Definition  | Allowed Values | Required |
 | ---------------- | ----------- | -------------- | -------- |
-| Name | Credit to person or organization who contributing to or is responsible for the a project | String | Yes |
-| Email | Email can be used to connect a person or organization by email | String | No |
+| Name | Credit to person or organization who contributing to or is responsible for the a project | [String] | Yes |
+| Email | Email can be used to connect a person or organization by email | [String] | No |
 | Creator | There is at least one mMain researchers involved in producing the data. There must be at least on creator | Boolean | Yes |
-| contrbutorType | Categorization of the role of the contributor. Recommended: ProjectLeader (for principal investigator), ResearchGroup (for lab, department, or division) | ContactPerson, DataCollector, DataCurator, ProjectLeader, ProjectManager, ProjectMember, RelatedPerson, Researcher, ResearchGroup, Other | No |
-| nameType | Type of contributor |Organizational, Personal | No |
+| contrbutorType | Categorization of the role of the contributor. Recommended: ProjectLeader (for principal investigator), ResearchGroup (for lab, department, or division) | Enum (ContactPerson, DataCollector, DataCurator, ProjectLeader, ProjectManager, ProjectMember, RelatedPerson, Researcher, ResearchGroup, Other) | No |
+| nameType | Type of contributor | Enum (Organizational, Personal) | No |
 | nameIdentifier | A code used to identify individual or entity that created contribution | Enum (GRID, ISNI, ORCID, ROR, RRID | No |
 | nameIdentifierScheme | Identifying scheme used in nameIdentifier | Enum (GRID, ISNI, ORCID, ROR, RRID, Other) | No |
 | POCName | Point of Contact name to reach | String | No |
