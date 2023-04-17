@@ -20,12 +20,12 @@ author: Contributors
 | contrbutorType | Categorization of the role of the contributor. Recommended: ProjectLeader (for principal investigator), ResearchGroup (for lab, department, or division) | ContactPerson, DataCollector, DataCurator, ProjectLeader, ProjectManager, ProjectMember, RelatedPerson, Researcher, ResearchGroup, Other | No |
 | nameType | Type of contributor |Organizational, Personal | No |
 | nameIdentifier | A code used to identify individual or entity that created contribution | Enum (GRID, ISNI, ORCID, ROR, RRID | No |
-| nameIdentifierScheme | Identifying scheme used in nameIdentifier | Enum (GRID, ISNI, ORCID, ROR, RRID, Other | No |
+| nameIdentifierScheme | Identifying scheme used in nameIdentifier | Enum (GRID, ISNI, ORCID, ROR, RRID, Other) | No |
 | POCName | Point of Contact name to reach | String | No |
 | POCEmail | Point of contact gives the emails of those who contributed | String | No |
 | Affiliation | Individual or entity in an organization associated with a particular project | String | No |
-| affiliationIdentifier | Affiliation Identifiers are unique values assigned to the affiliation | Enum (GRID, ISNI, ORCID, ROR, RRID | No |
-| affiliationIdentifierScheme |  | Enum (GRID,, ISNI, ORCID, ROR, RRID, Other | No |
+| affiliationIdentifier | Affiliation Identifiers are unique values assigned to the affiliation | Enum (GRID, ISNI, ORCID, ROR, RRID )| No |
+| affiliationIdentifierScheme |  | Enum (GRID,, ISNI, ORCID, ROR, RRID, Other) | No |
 
 
 <br/><br/> 
@@ -48,7 +48,7 @@ author: Contributors
 | fundingEntity | The individual or organization who are providing financial support to a project | String | Yes |
 | awardIdentifier | Award identifier provides an award or grant by an awarding organization | String | Yes |
 | fundingReferenceIdentifier | The funding reference identifier identifies the sources and references of a project | String | No |
-| fundingReferenceIdentifierType |  | Enum (GRID, ISNI, ORCID, ROR, RRID, Other | No |
+| fundingReferenceIdentifierType |  | Enum (GRID, ISNI, ORCID, ROR, RRID, Other) | No |
 | awardTitle | The recognition to the contributor(s) achievements | String | No |
 
 
@@ -92,11 +92,11 @@ author: Contributors
 
 | Field Name       | Definition  | Allowed Values | Required |
 | ---------------- | ----------- | -------------- | -------- |
-| Name | Credit to people or organization who contributed or is responsible for publication | [String] | Yes |
+| Name | CrarXivedit to people or organization who contributed or is responsible for publication | [String] | Yes |
 | URI | Uniform Resource Identifier is a of characters that identifies the web page | [String] | Yes |
 | Authors | The create or writer of a literary | [String] | Yes |
 | RelatedIdentifier | Related Identifier gives the option to add information about related resources | String | No |
-| RelateIdentifierType |  | arXiv, DOI, ISBN, PMID | No |
+| RelateIdentifierType |  | Enum (arXiv, DOI, ISBN, PMID) | No |
 | PMCID | PubMed Central identifiers are identifiers assigned to publications | String | No |
-| relationType | Relation type refers to type of publication (e.g. paper, article, etc.) | IsCitedBy, IsDocumentedBy | No |
+| relationType | Relation type refers to type of publication (e.g. paper, article, etc.) | Enum (IsCitedBy, IsDocumentedBy) | No |
 | Citation | Gives those who read material for other source of where material came from | String | No |
