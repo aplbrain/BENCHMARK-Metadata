@@ -5,11 +5,12 @@
 '   -----------------------------
 
 '   Grouping
-' together {
- '   class Collection
- '   class Experiment
- '   class Channel
-'}
+together {
+    class Project
+    class Collection
+    class Experiment
+    class Channel
+}
 
 together {
     class Channel
@@ -25,16 +26,7 @@ skinparam pageMargin 10
 skinparam pageBorderColor black
 skinparam pageBorderColor gray 
 
-'
-'   General comments and TO-DOs [mah2022.06.07]
-'   Need to review with special attention to data types and structures. I suspect
-'   we have a number of errors regarding entities vs references to entities, including 
-'   some confusions regarding arrays, references to arrays, and arrays of references.
-'   Need to be clear on just what we need to provide to be consistent with what is
-'   needed and current BossDB best practices.
-'
-note right of Project: Need to review full diagram with special attention to data types and structures. \nSuspect we have a number of errors regarding entities vs references to entities, including \nsome confusions regarding arrays, references to arrays, and arrays of references. \nNeed to be correct and consistent with BossDB best practices.
-  
+
 
 '   ------------------------------
 '   Primary Classes
@@ -393,11 +385,11 @@ class Contributor {
 '   Speciemen
 '
 
-class Speciemen {
-  * Species:  String
-  * Age:  integer
-  * Sex:  String
-  * taxonomyCode
+class Specimen {
+  *Species:  String
+  Age:  integer
+  Sex:  String
+  taxonomyCode
 }
 
 '
