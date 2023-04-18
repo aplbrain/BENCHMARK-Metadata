@@ -1,5 +1,5 @@
 ---
-title: Required Field Names for Metadata
+title: Essential_Metadata_Required_3D_Microscopy_Fields
 date: today
 author: Contributors
 ---
