@@ -47,18 +47,6 @@
 | base_neuron | Each neuron on the dataset will have an ID number to identify it. | int |
 <br/><br/> 
 
-## **Pre Synaptic and Post Synaptic Category**
-
-```
-    {
-        "neuron_id": int
-        "id": int
-        "type": str
-        "class_label":
-        "base_neuron":
-    }
-```
-
 ---
 ---
 <br/><br/> 
