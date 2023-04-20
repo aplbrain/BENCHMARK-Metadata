@@ -1,8 +1,3 @@
----
-title: Required Field Names Standards
-date: today
-author: Contributors
----
 
 # ***Required Field Names***
 
