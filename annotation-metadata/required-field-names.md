@@ -47,8 +47,7 @@
 | base_neuron | Each neuron on the dataset will have an ID number to identify it. | int |
 <br/><br/> 
 
----
----
+
 <br/><br/> 
 
 # **Cells**

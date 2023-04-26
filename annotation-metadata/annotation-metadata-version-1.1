@@ -28,6 +28,7 @@ Axon -[#darkred]-* Bouton
 Gap_Junctions -[#darkred]-* Axon
 Myelin -[#darkred]-* Axon
 Synapse -[#darkred]-* Axon
+Synapse -[#darkred]-* Dendrite
 Synapse -[#darkred]-* Axon_Initial_Segment
 Synapse -[#darkred]-* Bouton
 Synapse ---[#darkred]-* Spine
@@ -44,6 +45,7 @@ Organelles -[#darkred]-* Spine_Apparatus
 Nucleus -[#darkred]-* Soma
 Cleft -[#darkred]-* Synapse 
 Mitochondria -[#darkred]-* All_Cell_Compartments
+SynapticVesicle -[#darkred]-* Synapse
 
 class Cell{
 	*Cell Types:
@@ -186,10 +188,6 @@ class Nucleus{
 *Optional Properties:
 nucleolus : boolean
 }
-
-
-SynapticVesicle -[#darkred]-* Synapse
-Spine_Apparatus *-[#darkred]- Organelles
 
 
 class Axon{
