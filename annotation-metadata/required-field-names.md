@@ -27,7 +27,7 @@ author: Contributors
 | ---------------- | ----------- | -------------- |
 | objectID | ... | 0 $\leq$ ObjectID $\leq$ nE|
 | smallInt | Indicates a value of 1 or 2 | 1 or 2 | 
-| Interger | Values with long integer will be allowed to have up to 6 digits | 0 $\leq$ int $\leq$ 6 |
+| Integer | Values with long integer will be allowed to have up to 6 digits | 0 $\leq$ int $\leq$ 6 |
 | longNumber | Values with long integer will be allowed to have up to 6 digits | 0 <= nLong 11  |
 | Float | ... | 0 $\leq$ float $\leq$ -nE |
 | String | Add Definition Here | 0 $\leq$ str $\leq$ 9 | 

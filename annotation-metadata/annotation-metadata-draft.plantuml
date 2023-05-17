@@ -118,7 +118,7 @@ class Cell{
         web-like-interneuron : int,
         lot-of-axon : int,
         EIRatio : int,
-		precurser : int
+		precursor : int
 }
 
 

@@ -11,7 +11,7 @@ The field of connectomics overlaps heavily with other neuroimaging domains but h
 * Consider both the individual laboratory and the needs of a community user
 * Versioned releases likely sufficient for most secondary analysis
 
-## Suggested Image Formating Options
+## Suggested Image Formatting Options
 * [OME-Zarr (version 2)](https://github.com/ome/ome-zarr-py)
 	* Support for sharding underway, anticipating
 	* Tools and archives already supporting
