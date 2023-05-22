@@ -16,8 +16,8 @@
 # **Classes**
 | Class         | Entities         |
 | ---------------- | ---------------- |
-|Cell|Neuron, Glia, Regions of Interest, Optional Properties|
-|Mitochondria|Optional Properties|
+|Cell|Neuron, Neuron Types, Glia, Glia Types, Regions of Interest, Optional Cell Properties|
+|Mitochondria|Optional Mitochondria Properties|
 |Dendrite|Dendrite Properties, Synapse Site, 
 |Spine|Optional Properties|
 |Soma|Optional Properties|
@@ -39,16 +39,18 @@
 # **Cell**
 | Entity           | Data Type      | Allowed Values | Definition | 
 | ---------------- | -------------- | -------------- | ---------- |
-|Neuron|enum|sensory_neurons, motor_neurons, interneurons|Cell that transmits nerve impulses|
-|Glia|enum|astrocytes, microglia, oligodendrocyte|Works to protect and support neurons in the central nervous system|
+|Neuron|boolean|yes, no|Cell that transmits nerve impulses|
+|Neuron Types|enum|sensory_neurons, motor_neurons, interneurons|Types of neurons that transmit nerve impulses|
+|Glia|boolean|yes, no|Works to protect and support neurons in the central nervous system|
+|Glia Types|enum|astrocytes, microglia, oligodendrocyte|Types of glia that protect and support neurons in the central nervous system|
 |Regions of Interest|enum|layer, brain_regions_cylinder|Relevant measurement range|
-|Optional Properties|enum|multipolar, bipolar, unipolar, anaxonic, interneuron-type, pyramidal, c-shapes, excitatory/spiny-with-atypical-treem, sparsely-spiny, lots-of-spines,  web-like-interneuron, lot-of-axon, EIRatio, precursor| Optional documentation of cells|
+|Optional Cell Properties|enum|multipolar, bipolar, unipolar, anaxonic, interneuron-type, pyramidal, c-shapes, excitatory/spiny-with-atypical-treem, sparsely-spiny, lots-of-spines,  web-like-interneuron, lot-of-axon, EIRatio, precursor| Optional documentation of cells|
 
 
 # **Mitochondria**
 | Entity           | Data Type      | Allowed Values | Definition | 
 | ---------------- | -------------- | -------------- | ---------- |
-|Optional Properties|enum|lipids, proteins| Optional documentation of lipids and proteins found in the mitochondria |
+|Optional Mitochondria Properties|enum|lipids, proteins| Optional documentation of lipids and proteins found in the mitochondria |
 
 
 
@@ -59,6 +61,8 @@
 |Dendrite Properties|enum|base_neuron_id| Dendrite property types depicted as enumerations |
 |Synapse Site|enum|neuron_id| The location where nerve impulses are transmitted and received (enum)|
 |Synapse Site|str|type, class_label| The location where nerve impulses are transmitted and received (str)|
+| Optional Dendrite Properties | enum | number_dendriteskeleton_node, number_dendriticspineskeleton_nodes, number_ciliumskeleton_nodes,  dendritic_shaft, dendritic_spine | Optional dendrite enumeration property types |
+
 
 # **Spine**
 | Entity           | Data Type      | Allowed Values | Definition |
@@ -108,7 +112,7 @@
 | Axon Properties | enum | base_neuron_id | Axon enumeration property types |
 | Synapse Site | enum | pre_synaptic_site, neuron_id, type | Synapse site enumeration types  |
 | Synapse Site | str | class_label |  Synapse site string types |
-| Optional Axon Properties | enum | number_of_axons, number_axonskeleton_nodes, number_ciliumskeleton_nodes,  number_axoninitialskeleton_nodes, number_myelinatedaxonskeleton_nodes | Optional axon enumeration property types |
+| Optional Axon Properties | enum | number_of_axons, number_axonskeleton_nodes,  number_axoninitialskeleton_nodes, number_myelinatedaxonskeleton_nodes | Optional axon enumeration property types |
 
 # **SynapticVesicle**
 | Entity           | Data Type      | Allowed Values | Definition |
