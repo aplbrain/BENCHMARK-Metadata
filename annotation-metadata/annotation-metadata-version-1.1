@@ -67,7 +67,7 @@ class Cell{
 	brain_regions : enum,
 	cylinder : enum
 
-	*Optional Properties:
+	*Optional Cell Properties:
 		multipolar : enum,
 		bipolar : enum,
 		unipolar : enum,
@@ -84,14 +84,14 @@ class Cell{
         web-like-interneuron : enum,
         lot-of-axon : enum,
         EIRatio : enum,
-		precurser : enum
+		precursor : enum
 }
 class Bouton{
 
 }
 
 class Mitochondria{
-*Optional Properties:
+*Optional Mitochondria Properties:
 lipids : enum,
 proteins : enum
 }
@@ -139,14 +139,14 @@ class Spine_Apparatus{
 
 class Spine{
 --
-*Optional Properties:
+*Optional Spine Properties:
 number_of_spines: enum,
 spine_protrusions: str
 }
 
 
 class Soma{
-*Optional Properties:
+*Optional Soma Properties:
 	cell body: boolean
 
 }
@@ -159,7 +159,7 @@ class Synapse{
 	*Electrical: 
 		gap_junction: enum
 	
-	*Optional Properties:
+	*Optional Synapse Properties:
 	synapse_type: str,
 	number_output_synapses : enum,
 	number_input_synapses : enum,
@@ -185,7 +185,7 @@ class Organelles{
 
 }
 class Nucleus{
-*Optional Properties:
+*Optional Nucleus Properties:
 nucleolus : boolean
 }
 
@@ -229,7 +229,7 @@ class SynapticVesicle{
 } 
 
 class Axon_Initial_Segment{
-	*Optional Properties:
+	*Optional Axon_Initial_Segment Properties:
 	myelin: boolean
 
 }
