@@ -57,17 +57,17 @@
 # **Dendrite**
 | Entity           | Data Type      | Allowed Values | Definition | 
 | ---------------- | -------------- | -------------- | ---------- |
-|Dendrite Properties|boolean|apical_dendrite, basal_dendrite|  Dendrite property types depicted as boolean values  |    
-|Dendrite Properties|enum|base_neuron_id| Dendrite property types depicted as enumerations |
-|Synapse Site|enum|neuron_id| The location where nerve impulses are transmitted and received (enum)|
-|Synapse Site|str|type, class_label| The location where nerve impulses are transmitted and received (str)|
+|Dendrite Properties|enum|apical_dendrite, basal_dendrite |  Dendrite property types depicted as boolean values  |    
+|Dendrite Properties|str|base_neuron_id| Dendrite property types depicted as a string |
+|Synapse Site|enum|type, class_label| The location where nerve impulses are transmitted and received (enum)|
+|Synapse Site|str|neuron_id| The location where nerve impulses are transmitted and received (str)|
 | Optional Dendrite Properties | enum | number_dendriteskeleton_node, number_dendriticspineskeleton_nodes, number_ciliumskeleton_nodes,  dendritic_shaft, dendritic_spine | Optional dendrite enumeration property types |
 
 
 # **Spine**
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
-|Optional Properties|enum|number_of_spines| Applicable spine property types depicted as enumerations |
+|Optional Properties|int|number_of_spines| Applicable spine property types depicted as enumerations |
 |Optional Properties|str|spine_protrusions| Applicable spine  property types depicted as strings |
 
 
@@ -81,7 +81,7 @@
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
 |Chemical|enum|presynaptic, postsynaptic| Specialized sites that transmit signals between presynaptic neurons and their respective postsynaptic targets
-| Electrical | enum | gap_junction |
+| Electrical | str | gap_junction | Channels that allow for cell to cell transfers between ions and small molecules
 | Optional Properties | enum | number_output_synapses,  number_input_synapses, number_excitatory_synapse, number_inhibitory_synapses, number_outgoing_synapses, number_incoming_synapses, number_incomingexcitatory_synapses, number_incominginhibitory_synapses| Synapse optional properties and its corresponding values |
 
 
@@ -97,7 +97,7 @@
 | Nucleus | boolean | yes, no | Membrane enclosed organelle in a cell |
 | Gap_Junctions | boolean | yes, no | Clusters of channels that allow for diffusion of ions and small molecules |
 | Myelin | boolean | yes, no | Sheath formed around nerves composed of fatty substances |
-|Plasma Membrane | boolean | yes, no | Microscopic membrane of lipids and proteins that surrounds cytoplasm |
+| Plasma Membrane | boolean | yes, no | Microscopic membrane of lipids and proteins that surrounds cytoplasm |
 
 # **Nucleus**
 | Entity           | Data Type      | Allowed Values | Definition |
@@ -108,10 +108,10 @@
 # **Axon**
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
-| Axon Properties | boolean | axon_terminal, myelinated_axon | Axon property boolean types |
-| Axon Properties | enum | base_neuron_id | Axon enumeration property types |
-| Synapse Site | enum | pre_synaptic_site, neuron_id, type | Synapse site enumeration types  |
-| Synapse Site | str | class_label |  Synapse site string types |
+| Axon Properties | enum | axon_terminal, myelinated_axon | Axon property boolean types |
+| Axon Properties | str | base_neuron_id | Axon string property types |
+| Synapse Site | enum | pre_synaptic_site, type, class_label | Synapse site enumeration types  |
+| Synapse Site | str | neuron_id |  Synapse site string types |
 | Optional Axon Properties | enum | number_of_axons, number_axonskeleton_nodes,  number_axoninitialskeleton_nodes, number_myelinatedaxonskeleton_nodes | Optional axon enumeration property types |
 
 # **SynapticVesicle**
