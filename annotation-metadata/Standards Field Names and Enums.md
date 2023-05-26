@@ -81,7 +81,8 @@
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
 |Chemical|enum|presynaptic, postsynaptic| Specialized sites that transmit signals between presynaptic neurons and their respective postsynaptic targets
-| Electrical | str | gap_junction | Channels that allow for cell to cell transfers between ions and small molecules
+| Electrical | str | gap_junction_location |  The location where channels that allow for cell to cell transfers between ions and small molecules
+| Electrical | str | gap_junction_id | The identification tag for gap junctions
 | Optional Properties | enum | number_output_synapses,  number_input_synapses, number_excitatory_synapse, number_inhibitory_synapses, number_outgoing_synapses, number_incoming_synapses, number_incomingexcitatory_synapses, number_incominginhibitory_synapses| Synapse optional properties and its corresponding values |
 
 
@@ -123,6 +124,7 @@
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
 | Myelin | boolean | yes, no | Sheath formed around nerves composed of fatty substances |
+tes
 
 # **Spine_Apparatus**
 | Entity           | Data Type      | Allowed Values | Definition |
