@@ -124,7 +124,6 @@
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
 | Myelin | boolean | yes, no | Sheath formed around nerves composed of fatty substances |
-tes
 
 # **Spine_Apparatus**
 | Entity           | Data Type      | Allowed Values | Definition |
