@@ -2,14 +2,15 @@
 # **Required Field Names Standards**
 ---
 
+This table represents the gathering neurodata annotations field names, their data type, and allowed values. By defining the field names, users can establish a standardized structure for organizing the annotations. This helps in ensuring consistency and retrieval of information. Each field can have a specific data type associated with it, such as integer, float, string, enumeration, or boolean, depending on the data being annotated. This growing set of definitons seeks to allow users to explicitly define values while maintaing fluidity for collaboration.  
 
 # **Data Types**
 | Data Type       | Details  | Allowed Values |
 | ---------------- | ----------- | -------------- |
 | Integer (int) | Values with long integer will be allowed to have up to 6 digits | A whole number that is denoted as positive,  negative,  or zero |
 | Float | A floating-point number | A number that has a decimal place |
-| String (str) | A sequence of characters used to represent text | A sequence of characters | 
-| Enumeration (enum) |  User-defined type | Defined set of values | 
+| String (str) | A sequence of characters used to represent text | A sequence of characters, alphanumeric values, or letters | 
+| Enumeration (enum) |  User-defined type | Pre-defined set of values that are applicable to a specific entity | 
 |Boolean | True or false defined type | yes,  no |
 ---
 
