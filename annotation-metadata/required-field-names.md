@@ -2,7 +2,7 @@
 # **Required Field Names**
 ---
 
-This table represents the gathering neurodata annotations field names, their data type, and allowed values. By defining the field names, users can establish a standardized structure for organizing the annotations. This helps in ensuring consistency and retrieval of information. Class diagrams can be used to depict relationships within the annotation structure (Plant UML structure can be located at: BENCHMARK-Metadata/annotation-metadata/annotation-metadata-version-#). Each class has a corresponding entity, data type, and allowed values.
+This table represents the gathering neurodata annotations field names, their data type, and allowed values. By defining the field names, users can establish a standardized structure for organizing the annotations. This helps in ensuring consistency and retrieval of information. Class diagrams can be used to depict relationships within the annotation structure (reflecting plant UML structures can be located at: BENCHMARK-Metadata/annotation-metadata/annotation-metadata-version-#). Each class has a corresponding entity, data type, and allowed values.
 
 <img width="1203" alt="Screen Shot 2023-06-01 at 10 58 23 AM" src="https://github.com/aplbrain/BENCHMARK-Metadata/assets/66258538/297a967c-a847-419e-814a-39700293567a">
 
