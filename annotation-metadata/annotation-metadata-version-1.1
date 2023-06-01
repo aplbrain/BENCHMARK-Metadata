@@ -99,37 +99,37 @@ proteins : enum
 
 class Dendrite{
 *Dendrite Properties: 
-		apical_dendrite : boolean,
-		basal_dendrite : boolean,
-		base_neuron_id : enum
+		apical_dendrite : enum,
+		basal_dendrite : enum,
+		base_neuron_id : str
 
 *Synapse Site:
-		post_synaptic_partner : 
-			neuron_id : enum,
-			type : str,
-			class_label : str
+			type : enum,
+			class_label : enum,
+			neuron_id : str
+
 
 	*Optional Dendrite Properties:
 		number_dendriteskeleton_nodes : enum,
 		number_dendriticspineskeleton_nodes : enum,
 		number_ciliumskeleton_nodes : enum,
-		dendritic_shaft : boolean,
-		dendritic_spine : boolean
+		dendritic_shaft : enum,
+		dendritic_spine : enum
 --
     *location: 
-        x : enum
-        y : enum
-        z : enum
+        x : int
+        y : int
+        z : int
    
     *bounding_box: 
-            x : enum
-            y : enum
-            z : enum
+            x : int
+            y : int
+            z : int
        
       *size: 
-            x : enum
-            y : enum
-            z : enum
+            x : int
+            y : int
+            z : int
 } 
 
 class Spine_Apparatus{
@@ -140,7 +140,7 @@ class Spine_Apparatus{
 class Spine{
 --
 *Optional Spine Properties:
-number_of_spines: enum,
+number_of_spines: int,
 spine_protrusions: str
 }
 
@@ -153,14 +153,15 @@ class Soma{
 
 class Synapse{
 	*Chemical: 
-		presynaptic : boolean,
-		postsynaptic : boolean
+		presynaptic : enum,
+		postsynaptic : enum
 
 	*Electrical: 
-		gap_junction: enum
+		gap_junction_location : str, 
+		gap_junction_id : enum
+
 	
 	*Optional Synapse Properties:
-	synapse_type: str,
 	number_output_synapses : enum,
 	number_input_synapses : enum,
 	number_excitatory_synapses : enum,
@@ -210,19 +211,19 @@ class Axon{
 	number_myelinatedaxonskeleton_nodes : enum
 --
     *location: 
-        x : enum
-        y : enum
-        z : enum
+        x : int
+        y : int
+        z : int
    
     *bounding_box: 
-            x : enum
-            y : enum
-            z : enum
+            x : int
+            y : int
+            z : int
        
        *size: 
-            x : enum
-            y : enum
-            z : enum
+            x : int
+            y : int
+            z : int
 } 
 class SynapticVesicle{
 
