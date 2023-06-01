@@ -1,120 +1,163 @@
-
-# ***Required Field Names***
-
-![fieldNames](https://img.shields.io/badge/BENCHMARK-fieldNames-FFFC33)
-
-<br/><br/> 
-
-## **Contributors**
-
-| Field Name       | Definition  | Allowed Values |
-| ---------------- | ----------- | -------------- |
-| contributorName  |  Person (last name, first name) or organization (e.g., research group, department, institution) contributing to or responsible for the project, but does not include funders of the project. If a contributor has more than one contributorType, use a separate line for each.  | String |
-| Creator | Main researchers involved in producing the data. There must be at least one creator. | String |
-| contributorType | Categorization of the role of the contributor. Recommended: ProjectLeader (for principal investigator), ResearchGroup (for lab, department, or division). | String | 
-| nameType | Type of contributorName | String |
 ---
----
-<br/><br/> 
-
-# **Data Type**
-| Field Name       | Definition  | Allowed Values |
-| ---------------- | ----------- | -------------- |
-| objectID | ... | 0 $\leq$ ObjectID $\leq$ nE|
-| smallInt | Indicates a value of 1 or 2 | 1 or 2 | 
-| Interger | Values with long integer will be allowed to have up to 6 digits | 0 $\leq$ int $\leq$ 6 |
-| longNumber | Values with long integer will be allowed to have up to 6 digits | 0 <= nLong 11  |
-| Float | ... | 0 $\leq$ float $\leq$ -nE |
-| String | Add Definition Here | 0 $\leq$ str $\leq$ 9 | 
----
+# **Required Field Names**
 ---
 
-<br/><br/> 
+This table represents the gathering neurodata annotations field names, their data type, and allowed values. By defining the field names, users can establish a standardized structure for organizing the annotations. This helps in ensuring consistency and retrieval of information. Each class has a corresponding entity, data type, and allowed values. Classes can have multiple entities, and/or multiple corresponding data types, and allowed values. Each data type associated with it, such as integer, float, string, enumeration, or boolean, depends on the data being annotated. This growing set of definitons seeks to allow users to explicitly define values while maintaing fluidity for collaboration.  
 
-# **Synapses**
 
-| Field Name       | Definition  | Allowed Values |
+# **Data Types**
+| Data Type       | Details  | Allowed Values |
 | ---------------- | ----------- | -------------- |
-| preSynaptic | At the end of an axon and is the place where the electrical signal (the action potential) is converted into a chemical signal (neurotransmitter release). | Boolean |
-| postSynaptic | Side of the synapse is specialized to receive the neurotransmitter signal released from the presynaptic terminal and transduce it into electrical and biochemical changes in the postsynaptic cell. | Boolean |
-| Synaptic Cleft | This is the space that separates a neuron and its target cell at a chemical synapse. | Boolean |
-| Chemical | Connections between two neurons or between a neuron and a non-neuronal cell (muscle cell, glandular cell, sensory cell. | Boolean |
-| Electrical | Specialized connections between neurons that facilitate direct ionic and small metabolite communication | Boolean |
-| neuron_id | Neuron identity number |int |
-| id | Cell identity number  | int |
-| type | The pre synaptic site type determines if the site is pre-synaptic or post-synaptic using a value of 1 and 2; where the value of 1 is the pre-synaptic site. | int |
-| class_label | The neuron has many parts to it. Class label identifies what part of the neuron is being evaluated. (e.g., Axon, Soma, Dendrite, or Unknown) | str |
-| base_neuron | Each neuron on the dataset will have an ID number to identify it. | int |
-<br/><br/> 
-
-
-<br/><br/> 
-
-# **Cells**
-
-## **multipolarNeurons**
-| Field Name       | Definition  | Allowed Values |
-| ---------------- | ----------- | -------------- |
-| pyramidalCell | A type of multipolar neuron found in areas of the brain including the cerebral cortex, the hippocampus, and the amygdala. | Boolean |
-| purkinjeCell | Unique type of neuron-specific to the cerebellar cortex.  | Boolean | 
-| stellateCell | neurons in the central nervous system, named for their star-like shape formed by dendritic processes radiating from the cell body. | Boolean |
-| fusiformCell | Principal cell type in the dorsal cochlear nucleus. | Boolean |
-| glomerularCell | Made up of three cell types, the endothelial cells, the podocytes and the mesangial cells (MCs) | Boolean |
-| granuleCell | The smallest and most numerous type of neurons in the brain | Boolean |
-<br/><br/> 
-
-## **Neuron Properties**
-| Field Name       | Definition  | Allowed Values |
-| ---------------- | ----------- | -------------- |
-| _id | Each neuron has its own ID to be identified by. | int |
-| volume | Abundance of id’s | int | 
-| number_outgoing_synsapses | The number of synapses that are coming from a neuron. | int |
-| number_incoming_synapses | The number of synapses that are going into a neuron. | int |
-| number_incomingexcitatory_synapses | Add Definition Here | int |
-| number_incominginhibitory_synapses | Add Definition Here | int | 
-| number_dendriteskeleton_node | The number of nodes located on the dendrite skeleton | int | 
-| number_axonskeleton_nodes | The number of nodes located on the axon skeleton | int |
-| number_dendriticspineskeleton_nodes | The number of nodes located on the dendrite skeleton | int | 
-| number_ciliaskeleton_nodes | The number of nodes located on the cilium skeleton | int |
-| number_axoninitialsegmentskeleton_nodes | The number of nodes located on the axon initial; segment skeleton for a given neuron | int |
-| number_myelinatedaxonskeleton_nodes | The number of nodes located on the myelinated axon skeleton | int |
-| layer | Layers will determine what section/layer of the brain is being analyzed. | int | 
-<br/><br/> 
-
-## **Glia**
-| Field Name       | Definition  | Allowed Values |
-| ---------------- | ----------- | -------------- |
-| Astrocytes | Specialized glial cells that outnumber neurons by over fivefold. | Boolean |
-| ependymalCell | A cell that forms the lining of the fluid-filled spaces in the brain and spinal cord. | Boolean | 
-| Microglia | the most prominent immune cells of the central nervous system (CNS) and are the first to respond when something goes wrong in the brain | Boolean |
-| Oligodendrocyte | The myelinating cells of the central nervous system (CNS) | Boolean |
----
+| Integer (int) | Values with long integer will be allowed to have up to 6 digits | A whole number that is denoted as positive,  negative,  or zero |
+| Float | A floating-point number | A number that has a decimal place |
+| String (str) | A sequence of characters used to represent text | A sequence of characters, alphanumeric values, or letters | 
+| Enumeration (enum) |  User-defined type | Pre-defined set of values that are applicable to a specific entity | 
+|Boolean | True or false defined type | yes,  no |
 ---
 
+# **Classes**
+| Class         | Entities         |
+| ---------------- | ---------------- |
+|Cell|Neuron, Neuron Types, Glia, Glia Types, Regions of Interest, Optional Cell Properties|
+|Mitochondria|Optional Mitochondria Properties|
+|Dendrite|Dendrite Properties, Synapse Site, 
+|Spine|Optional Properties|
+|Soma|Optional Properties|
+|Synapse|Chemical, Electrical, Optional Properties|
+|Organelles|Ribosomes, Endoplasmic_Reticulum, Mitochondria, Golgi_Apparatus, Spine_Apparatus, SynapticVesicle, Nucleus, Gap_Junctions, Myelin, Plasma Membrane|
+|Nucleus|Nucleolus|
+|Axon|Axon Properties, Synapse Site, Optional Axon Properties|
+|Synaptic Vesicle| ... |
+|Axon Initial Segment|Myelin|
+|Spine_Apparatus|...|
+|Cleft|...|
+|Cilia|...|
+|Shaft|...|
+|Bouton|...|
+|Myelin|...|
+|All_cell_compartments|...|
 
-<br/><br/> 
 
-## **Extra Category**
+# **Cell**
+| Entity           | Data Type      | Allowed Values | Definition | 
+| ---------------- | -------------- | -------------- | ---------- |
+|Neuron|boolean|yes, no|Cell that transmits nerve impulses|
+|Neuron Types|enum|sensory_neurons, motor_neurons, interneurons|Types of neurons that transmit nerve impulses|
+|Glia|boolean|yes, no|Works to protect and support neurons in the central nervous system|
+|Glia Types|enum|astrocytes, microglia, oligodendrocyte|Types of glia that protect and support neurons in the central nervous system|
+|Regions of Interest|enum|layer, brain_regions_cylinder|Relevant measurement range|
+|Optional Cell Properties|enum|multipolar, bipolar, unipolar, anaxonic, interneuron-type, pyramidal, c-shapes, excitatory/spiny-with-atypical-treem, sparsely-spiny, lots-of-spines,  web-like-interneuron, lot-of-axon, EIRatio, precursor| Optional documentation of cells|
 
-| Field Name       | Definition  | Allowed Values |
-| ---------------- | ----------- | -------------- |
-| Axon | Transmit information moving in one direction from the dendrites through the axon to the next neuron. The axon is connected to the Presynaptic sending a chemical to be released into the Postsynaptic. | int<br/> Boolean |
-| Axosomatic | A synapse that’s made onto the soma or the cell body of a neuron | int<br/> Boolean |
-| Blood Vessel | Arteries, veins, capillaries that function to carry blood throughout the body to aid in circulation | int<br/> Boolean |
-| Dendrite | Connects to other neurons receiving information from other neurons (Greek from dendron mean tree) | int<br/> Boolean |
-| Dendritic Spine (Spine) | small membranous protrusion that is on the dendrite receiving transmitted information from the axon. | int<br/> Boolean |
-| Endoplasmic Reticulum | Sac-like structure in the cytoplasm of a cell that proteins move through | int<br/> Boolean |
-| Excitatory Synapse | Increases the likelihood of firing action potential of a cell | int<br/> Boolean |
-| Golgi Apparatus | Sorts together proteins that are send from the ER and send them back out to the different cells. (e.g., Lysosomes, plasma membrane secretion) | int<br/> Boolean |
-| Inhibitory Synapse | Decreases the likelihood of firing action potential of a cell | int<br/> Boolean |
-| Microtubules | Form the cell cytoskeleton to regulate cell growth and movement| int<br/> Boolean |
-| Mitochondria | Powerhouse of cell that generates chemical energy needed | int<br/> Boolean |
-| Neuropil | A fibrous network of nervous tissue that forms the gray matter of the brain | int<br/> Boolean |
-| Perikaryon | Part of the cell body where the nucleus is located | int<br/> Boolean |
-| Recceptor | Neurotransmitter molecules are released from a neuron they pass the signal to the next neuron to interact with receptors on that neuron. | int<br/> Boolean |
-| Ribosomes | A structure composed of RNA and protein that functions as protein synthesis | int<br/> Boolean |
-| Soma | Cell body of a neuron contains the nucleus and other structures common to living cells. | int<br/> Boolean |
-| Spine Apparatus | Regulates calcium movements and helps regulate protein synthesis | int<br/> Boolean |
-Synaptic Cleft | This is the space that separates a neuron and its target cell at a chemical synapse. | int<br/> Boolean |
-| Synaptic Vesicle | Presynaptic terminals that store neurontransmitters | int<br/> Boolean |
----
+
+# **Mitochondria**
+| Entity           | Data Type      | Allowed Values | Definition | 
+| ---------------- | -------------- | -------------- | ---------- |
+|Optional Mitochondria Properties|enum|lipids, proteins| Optional documentation of lipids and proteins found in the mitochondria |
+
+
+
+# **Dendrite**
+| Entity           | Data Type      | Allowed Values | Definition | 
+| ---------------- | -------------- | -------------- | ---------- |
+|Dendrite Properties|enum|apical_dendrite, basal_dendrite |  Dendrite property types depicted as boolean values  |    
+|Dendrite Properties|str|base_neuron_id| Dendrite property types depicted as a string |
+|Synapse Site|enum|type, class_label| The location where nerve impulses are transmitted and received (enum)|
+|Synapse Site|str|neuron_id| The location where nerve impulses are transmitted and received (str)|
+| Optional Dendrite Properties | enum | number_dendriteskeleton_node, number_dendriticspineskeleton_nodes, number_ciliumskeleton_nodes,  dendritic_shaft, dendritic_spine | Optional dendrite enumeration property types |
+
+
+# **Spine**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+|Optional Properties|int|number_of_spines| Applicable spine property types depicted as enumerations |
+|Optional Properties|str|spine_protrusions| Applicable spine  property types depicted as strings |
+
+
+# **Soma**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+|Optional Properties|boolean|cell body| Soma optional properties depicted as boolean,  determines whether or not there is a cell body|
+
+
+# **Synapse**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+|Chemical|enum|presynaptic, postsynaptic| Specialized sites that transmit signals between presynaptic neurons and their respective postsynaptic targets
+| Electrical | str | gap_junction_location |  The location where channels that allow for cell to cell transfers between ions and small molecules
+| Electrical | str | gap_junction_id | The identification tag for gap junctions
+| Optional Properties | enum | number_output_synapses,  number_input_synapses, number_excitatory_synapse, number_inhibitory_synapses, number_outgoing_synapses, number_incoming_synapses, number_incomingexcitatory_synapses, number_incominginhibitory_synapses| Synapse optional properties and its corresponding values |
+
+
+# **Organelles**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| Ribosomes | boolean | yes, no | A structure composed of RNA and proteins to aid in protein synthesis |
+| Endoplasmic_Reticulum | boolean | yes, no | Sac-like structure in the cytoplasm of a cell that helps aid protein movement |
+| Mitochondria | boolean | yes, no | Powerhouse of cell that generates chemical energy |
+| Golgi_Apparatus | boolean | yes, no | Folded vesicles that form a stack of flat slacs in the cell's cytoplasm to prepare lipids and proteins for transport |
+| Spine_Apparatus | boolean | yes, no | Specialized form of endoplasmic reticulum located in the dendritic spine |
+| SynapticVesicle | boolean | yes, no | Vesicles that store presynaptic terminals and neurotransmitters |
+| Nucleus | boolean | yes, no | Membrane enclosed organelle in a cell |
+| Gap_Junctions | boolean | yes, no | Clusters of channels that allow for diffusion of ions and small molecules |
+| Myelin | boolean | yes, no | Sheath formed around nerves composed of fatty substances |
+| Plasma Membrane | boolean | yes, no | Microscopic membrane of lipids and proteins that surrounds cytoplasm |
+
+# **Nucleus**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| Nucleolus | boolean | yes, no | Composed of RNA and proteins in the nucleus |
+
+
+# **Axon**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| Axon Properties | enum | axon_terminal, myelinated_axon | Axon property boolean types |
+| Axon Properties | str | base_neuron_id | Axon string property types |
+| Synapse Site | enum | pre_synaptic_site, type, class_label | Synapse site enumeration types  |
+| Synapse Site | str | neuron_id |  Synapse site string types |
+| Optional Axon Properties | enum | number_of_axons, number_axonskeleton_nodes,  number_axoninitialskeleton_nodes, number_myelinatedaxonskeleton_nodes | Optional axon enumeration property types |
+
+# **SynapticVesicle**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| ... | ... | ... | ... |
+
+# **Axon_Initial_Segment**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| Myelin | boolean | yes, no | Sheath formed around nerves composed of fatty substances |
+
+# **Spine_Apparatus**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| ... | ... | ... | ... |
+
+# **Cleft**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| ... | ... | ... | ... |
+
+# **Cilia**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| ... | ... | ... | ... |
+
+# **Shaft**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| ... | ... | ... | ... |
+
+# **Bouton**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| ... | ... | ... | ... |
+
+# **Myelin**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| ... | ... | ... | ... |
+
+# **All_cell_compartments**
+| Entity           | Data Type      | Allowed Values | Definition |
+| ---------------- | -------------- | -------------- | ---------- |
+| ... | ... | ... | ... |
