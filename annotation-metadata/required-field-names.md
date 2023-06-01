@@ -4,6 +4,7 @@
 
 This table represents the gathering neurodata annotations field names, their data type, and allowed values. By defining the field names, users can establish a standardized structure for organizing the annotations. This helps in ensuring consistency and retrieval of information. Each class has a corresponding entity, data type, and allowed values. Classes can have multiple entities, and/or multiple corresponding data types, and allowed values. Each data type associated with it, such as integer, float, string, enumeration, or boolean, depends on the data being annotated. This growing set of definitons seeks to allow users to explicitly define values while maintaing fluidity for collaboration.  
 
+<img width="355" alt="Screen Shot 2023-06-01 at 10 54 28 AM" src="https://github.com/aplbrain/BENCHMARK-Metadata/assets/66258538/2280cec2-e00b-4d3b-b40d-48e3863e6644">
 
 # **Data Types**
 | Data Type       | Details  | Allowed Values |
