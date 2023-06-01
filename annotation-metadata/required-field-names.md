@@ -2,7 +2,15 @@
 # **Required Field Names**
 ---
 
-This table represents the gathering neurodata annotations field names, their data type, and allowed values. By defining the field names, users can establish a standardized structure for organizing the annotations. This helps in ensuring consistency and retrieval of information. Each class has a corresponding entity, data type, and allowed values. Classes can have multiple entities, and/or multiple corresponding data types, and allowed values. Each data type associated with it, such as integer, float, string, enumeration, or boolean, depends on the data being annotated. This growing set of definitons seeks to allow users to explicitly define values while maintaing fluidity for collaboration.  
+This table represents the gathering neurodata annotations field names, their data type, and allowed values. By defining the field names, users can establish a standardized structure for organizing the annotations. This helps in ensuring consistency and retrieval of information. Each class has a corresponding entity, data type, and allowed values.
+
+<img width="1203" alt="Screen Shot 2023-06-01 at 10 58 23 AM" src="https://github.com/aplbrain/BENCHMARK-Metadata/assets/66258538/297a967c-a847-419e-814a-39700293567a">
+
+A class can have multiple entities or corresponding data types, each representing a different piece of data associated with the object. Each data type associated with it, such as integer, float, string, enumeration, or boolean, depends on the data being annotated. It's also possible to have multiple attributes of the same or different data types within a class.
+
+<img width="1116" alt="Screen Shot 2023-06-01 at 10 59 44 AM" src="https://github.com/aplbrain/BENCHMARK-Metadata/assets/66258538/77f28ae5-c305-4469-81fb-34fea28dcd20">
+
+Neuroscience data can be diverse and complex, requiring flexible approaches to accommodate different designs and analysis. This growing set of definitons seeks to allow users to explicitly define values while maintaing fluidity for collaboration. 
 
 
 # **Data Types**
@@ -59,8 +67,8 @@ This table represents the gathering neurodata annotations field names, their dat
 # **Dendrite**
 | Entity           | Data Type      | Allowed Values | Definition | 
 | ---------------- | -------------- | -------------- | ---------- |
-|Dendrite Properties|enum|apical_dendrite, basal_dendrite |  Dendrite property types depicted as boolean values  |    
-|Dendrite Properties|str|base_neuron_id| Dendrite property types depicted as a string |
+|Dendrite Properties|enum|apical_dendrite, basal_dendrite |  Dendrite property types (enum)  |    
+|Dendrite Properties|str|base_neuron_id| Dendrite property types (str) |
 |Synapse Site|enum|type, class_label| The location where nerve impulses are transmitted and received (enum)|
 |Synapse Site|str|neuron_id| The location where nerve impulses are transmitted and received (str)|
 | Optional Dendrite Properties | enum | number_dendriteskeleton_node, number_dendriticspineskeleton_nodes, number_ciliumskeleton_nodes,  dendritic_shaft, dendritic_spine | Optional dendrite enumeration property types |
@@ -84,7 +92,7 @@ This table represents the gathering neurodata annotations field names, their dat
 | ---------------- | -------------- | -------------- | ---------- |
 |Chemical|enum|presynaptic, postsynaptic| Specialized sites that transmit signals between presynaptic neurons and their respective postsynaptic targets
 | Electrical | str | gap_junction_location |  The location where channels that allow for cell to cell transfers between ions and small molecules
-| Electrical | str | gap_junction_id | The identification tag for gap junctions
+| Electrical | enum | gap_junction_id | The identification tag for gap junctions
 | Optional Properties | enum | number_output_synapses,  number_input_synapses, number_excitatory_synapse, number_inhibitory_synapses, number_outgoing_synapses, number_incoming_synapses, number_incomingexcitatory_synapses, number_incominginhibitory_synapses| Synapse optional properties and its corresponding values |
 
 
