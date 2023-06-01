@@ -6,11 +6,11 @@ This table represents the gathering neurodata annotations field names, their dat
 
 <img width="1203" alt="Screen Shot 2023-06-01 at 10 58 23 AM" src="https://github.com/aplbrain/BENCHMARK-Metadata/assets/66258538/297a967c-a847-419e-814a-39700293567a">
 
-Classes can have multiple entities, and/or multiple corresponding data types, and allowed values. Each data type associated with it, such as integer, float, string, enumeration, or boolean, depends on the data being annotated. 
+A class can have multiple entities or corresponding data types, each representing a different piece of data associated with the object. Each data type associated with it, such as integer, float, string, enumeration, or boolean, depends on the data being annotated. It's also possible to have multiple attributes of the same or different data types within a class.
 
 <img width="1116" alt="Screen Shot 2023-06-01 at 10 59 44 AM" src="https://github.com/aplbrain/BENCHMARK-Metadata/assets/66258538/77f28ae5-c305-4469-81fb-34fea28dcd20">
 
-This growing set of definitons seeks to allow users to explicitly define values while maintaing fluidity for collaboration.  
+Neuroscience data can be diverse and complex, requiring flexible approaches to accommodate different designs and analysis. This growing set of definitons seeks to allow users to explicitly define values while maintaing fluidity for collaboration. 
 
 
 # **Data Types**
