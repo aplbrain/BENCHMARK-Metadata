@@ -52,23 +52,21 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | Entity           | Data Type      | Allowed Values | Definition | 
 | ---------------- | -------------- | -------------- | ---------- |
 |Neuron|boolean|yes, no|Cell that transmits nerve impulses|
-|Neuron|other|string text|Cell that transmits nerve impulses|
 |Neuron Types|enum|sensory_neurons, motor_neurons, interneurons|Types of neurons that transmit nerve impulses|
-|Neuron Types|other|string text|Types of neurons that transmit nerve impulses|
+|Neuron Types|other|string text|Types of neurons that transmit nerve impulses that do not fit the defined options|
 |Glia|boolean|yes, no|Works to protect and support neurons in the central nervous system|
-|Glia|other|string text|Works to protect and support neurons in the central nervous system|
 |Glia Types|enum|astrocytes, microglia, oligodendrocyte|Types of glia that protect and support neurons in the central nervous system|
-|Glia Types|other|string text|Types of glia that protect and support neurons in the central nervous system|
+|Glia Types|other|string text|Types of glia that protect and support neurons in the central nervous system that does not fit the defined options|
 |Regions of Interest|enum|layer, brain_regions_cylinder|Relevant measurement range|
-|Regions of Interest|other|string text|Relevant measurement range|
+|Regions of Interest|other|string text|Relevant measurement range that does not fit the defined options|
 |Optional Cell Properties|enum|multipolar, bipolar, unipolar, anaxonic, interneuron-type, pyramidal, c-shapes, excitatory/spiny-with-atypical-treem, sparsely-spiny, lots-of-spines,  web-like-interneuron, lot-of-axon, EIRatio, precursor| Optional documentation of cells|
-|Optional Cell Properties|other|string text| Optional documentation of cells|
+|Optional Cell Properties|other|string text| Optional documentation of cells that does not fit the defined options|
 
 # **Mitochondria**
 | Entity           | Data Type      | Allowed Values | Definition | 
 | ---------------- | -------------- | -------------- | ---------- |
 |Optional Mitochondria Properties|enum|lipids, proteins| Optional documentation of lipids and proteins found in the mitochondria |
-|Optional Mitochondria Properties|other|string text| Optional documentation of lipids and proteins found in the mitochondria |
+|Optional Mitochondria Properties|other|string text| Optional documentation of lipids and proteins found in the mitochondria that does not fit the defined options |
 
 
 
@@ -77,12 +75,12 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | ---------------- | -------------- | -------------- | ---------- |
 |Dendrite Properties|enum|apical_dendrite, basal_dendrite |  Dendrite property types (enum)  |    
 |Dendrite Properties|str|base_neuron_id| Dendrite property types (str) |
-|Dendrite Properties|other|string text|  Dendrite property types (other)  |    
+|Dendrite Properties|other|string text|  Dendrite property types that does not fit the defined options |    
 |Synapse Site|enum|type, class_label| The location where nerve impulses are transmitted and received (enum)|
 |Synapse Site|str|neuron_id| The location where nerve impulses are transmitted and received (str)|
-|Synapse Site|other|string text| The location where nerve impulses are transmitted and received (other)|
+|Synapse Site|other|string text| The location where nerve impulses are transmitted and received that does not fit the defined options|
 | Optional Dendrite Properties | enum | number_dendriteskeleton_node, number_dendriticspineskeleton_nodes, number_ciliumskeleton_nodes,  dendritic_shaft, dendritic_spine | Optional dendrite enumeration property types |
-| Optional Dendrite Properties | other | string text | Optional dendrite enumeration property types |
+| Optional Dendrite Properties | other | string text | Optional dendrite properties that do not fit the defined options |
 
 
 
@@ -91,27 +89,25 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | ---------------- | -------------- | -------------- | ---------- |
 |Optional Properties|int|number_of_spines| Number of spines |
 |Optional Properties|str|spine_protrusions| Applicable spine  property types depicted as strings |
-|Optional Properties|other|string text| Applicable spine property types depicted as other |
+|Optional Properties|other|string text| Applicable spine property types that do not fit the defined options |
 
 
 # **Soma**
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
 |Optional Properties|boolean|cell body| Soma optional properties depicted as boolean,  determines whether or not there is a cell body|
-|Optional Properties|other|string text| Soma optional properties depicted as boolean,  determines whether or not there is a cell body|
-
 
 
 # **Synapse**
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
 |Chemical|enum|presynaptic, postsynaptic| Specialized sites that transmit signals between presynaptic neurons and their respective postsynaptic targets|
-|Chemical|other|string text| Specialized sites that transmit signals between presynaptic neurons and their respective postsynaptic targets|
+|Chemical|other|string text| Specialized sites that transmit signals between presynaptic neurons and their respective postsynaptic targets that does not fit the defined options|
 | Electrical | enum | gap_junction_location |  The location where channels that allow for cell to cell transfers between ions and small molecules|
 | Electrical | str | gap_junction_id | The identification tag for gap junctions|
-| Electrical | other | string text |  The location where channels that allow for cell to cell transfers between ions and small molecules
+| Electrical | other | string text |  Electrical properties that do not fit the defined options| 
 | Optional Properties | enum | number_output_synapses,  number_input_synapses, number_excitatory_synapse, number_inhibitory_synapses, number_outgoing_synapses, number_incoming_synapses, number_incomingexcitatory_synapses, number_incominginhibitory_synapses| Synapse optional properties and its corresponding values |
-| Optional Properties | other | string text| Synapse optional properties and its corresponding values |
+| Optional Properties | other | string text| Synapse optional properties that do not fit the defined options|
 
 
 
@@ -140,10 +136,10 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | ---------------- | -------------- | -------------- | ---------- |
 | Axon Properties | enum | axon_terminal, myelinated_axon | Axon property boolean types |
 | Axon Properties | str | base_neuron_id | Axon string property types |
-| Axon Properties | other | string text | Axon other property types |
+| Axon Properties | other | string text | Axon property types that do not fit the defined options |
 | Synapse Site | enum | pre_synaptic_site, type, class_label | Synapse site enumeration types  |
 | Synapse Site | str | neuron_id |  Synapse site string types |
-| Synapse Site | other | string text |  Synapse site other types |
+| Synapse Site | other | string text |  Synapse site that does not fit the defined options |
 | Optional Axon Properties | enum | number_of_axons, number_axonskeleton_nodes,  number_axoninitialskeleton_nodes, number_myelinatedaxonskeleton_nodes | Optional axon enumeration property types |
 
 # **SynapticVesicle**
