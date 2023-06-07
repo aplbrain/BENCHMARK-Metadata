@@ -108,7 +108,6 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | ---------------- | -------------- | -------------- | ---------- |
 |Chemical|enum|presynaptic, postsynaptic| Specialized sites that transmit signals between presynaptic neurons and their respective postsynaptic targets|
 |Chemical|other|string text| Specialized sites that transmit signals between presynaptic neurons and their respective postsynaptic targets|
-
 | Electrical | enum | gap_junction_location |  The location where channels that allow for cell to cell transfers between ions and small molecules|
 | Electrical | str | gap_junction_id | The identification tag for gap junctions|
 | Electrical | other | string text |  The location where channels that allow for cell to cell transfers between ions and small molecules
