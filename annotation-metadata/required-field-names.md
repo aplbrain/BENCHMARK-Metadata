@@ -47,6 +47,7 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 |Myelin|...|
 |All_cell_compartments|...| 
 
+---
 
 # **Cell**
 | Entity           | Data Type      | Allowed Values | Definition | 
