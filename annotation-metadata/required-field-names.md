@@ -17,10 +17,10 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | Data Type       | Details  | Allowed Values |
 | ---------------- | ----------- | -------------- |
 | Integer (int) | Values with long integer will be allowed to have up to 6 digits | A whole number that is denoted as positive,  negative,  or zero |
-| Float | A floating-point number | A number that has a decimal place |
+| Float (float)| A floating-point number | A number that has a decimal place |
 | String (str) | A sequence of characters used to represent text | A sequence of characters, alphanumeric values, or letters | 
 | Enumeration (enum) |  User-defined type | Pre-defined set of values that are applicable to a specific entity | 
-|Boolean | True or false defined type | yes,  no |
+|Boolean (boolean) | True or false defined type | yes,  no |
 | Other (str) | A sequence of characters used to represent pending text | A sequence of characters, alphanumeric values, or letters | 
 
 ---
@@ -45,7 +45,7 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 |Shaft|...|
 |Bouton|...|
 |Myelin|...|
-|All_cell_compartments|...|
+|All_cell_compartments|...| 
 
 
 # **Cell**
