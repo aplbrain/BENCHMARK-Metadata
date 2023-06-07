@@ -56,7 +56,7 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 |Neuron Types|enum|sensory_neurons, motor_neurons, interneurons|Types of neurons that transmit nerve impulses|
 |Neuron Types|other|string text|Types of neurons that transmit nerve impulses|
 |Glia|boolean|yes, no|Works to protect and support neurons in the central nervous system|
-|Glia||other|string text|Works to protect and support neurons in the central nervous system|
+|Glia|other|string text|Works to protect and support neurons in the central nervous system|
 |Glia Types|enum|astrocytes, microglia, oligodendrocyte|Types of glia that protect and support neurons in the central nervous system|
 |Glia Types|other|string text|Types of glia that protect and support neurons in the central nervous system|
 |Regions of Interest|enum|layer, brain_regions_cylinder|Relevant measurement range|
@@ -89,10 +89,9 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 # **Spine**
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
-|Optional Properties|int|number_of_spines| Applicable spine property types depicted as enumerations |
-|Optional Properties|other|string text| Applicable spine property types depicted as other |
+|Optional Properties|int|number_of_spines| Number of spines |
 |Optional Properties|str|spine_protrusions| Applicable spine  property types depicted as strings |
-|Optional Properties|other|string text| Applicable spine  property types depicted as other |
+|Optional Properties|other|string text| Applicable spine property types depicted as other |
 
 
 # **Soma**
