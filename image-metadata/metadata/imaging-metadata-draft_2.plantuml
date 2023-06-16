@@ -382,14 +382,19 @@ class Contributor {
 }
 
 '
-'   Speciemen
+'   Taxonomy
 '
 
-class Specimen {
-  *Species:  String
-  Age:  integer
-  Sex:  String
-  taxonomyCode
+class Taxonomy {
+  TaxonomyID:  String
+  CurrentName:  String
+  Genbank common name:  String
+  NCBI BLAST name: String
+  Rank: String
+  GeneticCode: String
+  MitochondrialFeneticCode: String
+  CommonName: [String]
+  
 }
 
 '
