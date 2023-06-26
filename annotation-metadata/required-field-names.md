@@ -28,9 +28,10 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 # **Classes**
 | Class         | Entities         |
 | ---------------- | ---------------- |
-|Cell|Neuron, Neuron Types, Glia, Glia Types, Regions of Interest, Optional Cell Properties|
+|Annotation Provenance |Annotator, Score|
+|Cell|Cell Types, Neuron Types, Glia Types, Regions of Interest, Optional Cell Properties|
 |Mitochondria|Optional Mitochondria Properties|
-|Dendrite|Dendrite Properties, Synapse Site, 
+|Dendrite|Dendrite Properties, Synapse Site, Optional Properties|
 |Spine|Optional Properties|
 |Soma|Optional Properties|
 |Synapse|Chemical, Electrical, Optional Properties|
@@ -48,19 +49,29 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 |All_cell_compartments|...| 
 
 ---
+ **Annotation Provenance**
+| Entity           | Data Type      | Allowed Values | Definition | 
+| ---------------- | -------------- | -------------- | ---------- |
+|Annotator|enum|contributor(s), contributor_method, novice_annotator, expert_annotator, novice_proofreader, expert_proofreader|Keeping track of users, their roles, and methods in the annotation process provides insights into their expertise, potential biases, and reliability of their contributions|
+|Annotator|other|string text|Annotator properties that are not defined|
+|Score| int | user_validation, annotation_used, annotation_reviewed, review_time_hours, edit_amount| Assigning a depersonalized score from source of the annotation (individual or method used), the number of users who validated it, the number of times it has been used or reviewed, and other relevant metrics will foster a quality controlled annotation|
+|Score|other|string text|Score properties that are not defined|
+
+
+
+
 
 # **Cell**
 | Entity           | Data Type      | Allowed Values | Definition | 
 | ---------------- | -------------- | -------------- | ---------- |
-|Neuron|boolean|yes, no|Cell that transmits nerve impulses|
+|Cell Types|str|neuron, glia|Cell that work to protect and support neurons in the central nervous system|
 |Neuron Types|enum|sensory_neurons, motor_neurons, interneurons|Types of neurons that transmit nerve impulses|
 |Neuron Types|other|string text|Types of neurons that transmit nerve impulses that do not fit the defined options|
-|Glia|boolean|yes, no|Works to protect and support neurons in the central nervous system|
 |Glia Types|enum|astrocytes, microglia, oligodendrocyte|Types of glia that protect and support neurons in the central nervous system|
 |Glia Types|other|string text|Types of glia that protect and support neurons in the central nervous system that does not fit the defined options|
 |Regions of Interest|enum|layer, brain_regions_cylinder|Relevant measurement range|
 |Regions of Interest|other|string text|Relevant measurement range that does not fit the defined options|
-|Optional Cell Properties|enum|multipolar, bipolar, unipolar, anaxonic, interneuron-type, pyramidal, c-shapes, excitatory/spiny-with-atypical-treem, sparsely-spiny, lots-of-spines,  web-like-interneuron, lot-of-axon, EIRatio, precursor| Optional documentation of cells|
+|Optional Cell Properties|enum|multipolar, bipolar, unipolar, anaxonic, blood_vessel_type, interneuron-type, pyramidal, c-shapes, excitatory/spiny-with-atypical-treem, sparsely-spiny, lots-of-spines,  web-like-interneuron, lot-of-axon, EIRatio, precursor| Optional documentation of cells|
 |Optional Cell Properties|other|string text| Optional documentation of cells that does not fit the defined options|
 
 # **Mitochondria**
@@ -96,7 +107,9 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 # **Soma**
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
-|Optional Properties|boolean|cell body| Soma optional properties depicted as boolean,  determines whether or not there is a cell body|
+|Optional Properties|boolean|cell body| Soma optional properties depicted as boolean, determines whether or not there is a cell body|
+|Optional Properties|other|string text| Soma optional property types that do not fit the defined options |
+
 
 
 # **Synapse**
@@ -130,6 +143,8 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
 | Nucleolus | boolean | yes, no | Composed of RNA and proteins in the nucleus |
+| Nucleolus | other | string text | Nucleus properties that do not fit the defined options |
+
 
 
 # **Axon**
@@ -142,6 +157,7 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | Synapse Site | str | neuron_id |  Synapse site string types |
 | Synapse Site | other | string text |  Synapse site that does not fit the defined options |
 | Optional Axon Properties | enum | number_of_axons, number_axonskeleton_nodes,  number_axoninitialskeleton_nodes, number_myelinatedaxonskeleton_nodes | Optional axon enumeration property types |
+| Optional Axon Properties | other |string | Optional axon property types that do not fit defined propeties|
 
 # **SynapticVesicle**
 | Entity           | Data Type      | Allowed Values | Definition |

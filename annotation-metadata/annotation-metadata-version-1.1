@@ -47,32 +47,57 @@ Cleft -[#darkred]-* Synapse
 Mitochondria -[#darkred]-* All_Cell_Compartments
 SynapticVesicle -[#darkred]-* Synapse
 
+class Annotation Provenance{
+	*Annotator: 
+	contributor(s) : enum, 
+	contributor_method : enum, 
+	novice_annotator : enum, 
+	expert_annotator : enum, 
+	novice_proofreader : enum, 
+	expert_proofreader : enum, 
+	other: str
+
+	
+	*Score:
+	user_validation : int, 
+	annotation_used : int, 
+	annotation_reviewed : int, 
+	review_time_hours : int, 
+	edit_amount : int,
+	other: str
+
+
+}
+
 class Cell{
 	*Cell Types:
-	Neuron : boolean, 
-	Glia : boolean
+	neuron : str, 
+	glia : str
 	
 	*Neuron Types:
 	sensory_neurons: enum,
 	motor_neurons : enum,
-	interneurons: enum
+	interneurons: enum, 
+	other: str
 
 	*Glia Types: 
 		astrocytes : enum,
 		microglia : enum,
-		oligodendrocyte : enum
+		oligodendrocyte : enum, 
+		other: str
 
 	*Regions of Interest:
 	layer : enum,
 	brain_regions : enum,
-	cylinder : enum
+	cylinder : enum, 
+	other: str
 
 	*Optional Cell Properties:
 		multipolar : enum,
 		bipolar : enum,
 		unipolar : enum,
 		anaxonic : enum,
-		number_of_blood_vessel_cells : enum,
+		blood_vessel_type : enum,
 		interneuron-type : str,
         pyramidal : enum,
 		c-shaped : enum,
@@ -93,7 +118,9 @@ class Bouton{
 class Mitochondria{
 *Optional Mitochondria Properties:
 lipids : enum,
-proteins : enum
+proteins : enum, 
+other: str
+
 }
 
 
@@ -101,12 +128,16 @@ class Dendrite{
 *Dendrite Properties: 
 		apical_dendrite : enum,
 		basal_dendrite : enum,
-		base_neuron_id : str
+		base_neuron_id : str, 
+		other: str
+
 
 *Synapse Site:
 			type : enum,
 			class_label : enum,
-			neuron_id : str
+			neuron_id : str, 
+			other: str
+
 
 
 	*Optional Dendrite Properties:
@@ -114,7 +145,9 @@ class Dendrite{
 		number_dendriticspineskeleton_nodes : enum,
 		number_ciliumskeleton_nodes : enum,
 		dendritic_shaft : enum,
-		dendritic_spine : enum
+		dendritic_spine : enum, 
+		other: str
+
 --
     *location: 
         x : int
@@ -141,24 +174,29 @@ class Spine{
 --
 *Optional Spine Properties:
 number_of_spines: int,
-spine_protrusions: str
+spine_protrusions: str, 
+other: str
 }
 
 
 class Soma{
 *Optional Soma Properties:
-	cell body: boolean
+	cell body: boolean, 
+	other: str
 
 }
 
 class Synapse{
 	*Chemical: 
 		presynaptic : enum,
-		postsynaptic : enum
+		postsynaptic : enum, 
+		other: str
 
 	*Electrical: 
 		gap_junction_location : str, 
-		gap_junction_id : enum
+		gap_junction_id : enum, 
+		other: str
+
 
 	
 	*Optional Synapse Properties:
@@ -169,7 +207,9 @@ class Synapse{
 	number_outgoing_synapses : enum,
 	number_incoming_synapses : enum,
 	number_incomingexcitatory_synapses : enum,
-	number_incominginhibitory_synapses : enum
+	number_incominginhibitory_synapses : enum, 
+	other: str
+
 }
 
 class Organelles{
@@ -187,7 +227,9 @@ class Organelles{
 }
 class Nucleus{
 *Optional Nucleus Properties:
-nucleolus : boolean
+nucleolus : boolean, 
+other: str
+
 }
 
 
@@ -195,20 +237,26 @@ class Axon{
 	*Axon Properties: 
 	axon_terminal  : boolean,
 	myelinated_axon : boolean,
-	base_neuron_id : enum
+	base_neuron_id : enum,
+	other: str
+
 
 *Synapse Site:
 		pre_synaptic_site : enum,
 		neuron_id : enum,
 		type : str,
-		class_label : str
+		class_label : str, 
+		other: str
+
 
 *Optional Axon Properties:
 	number_of_axons : enum,
 	number_axonskeleton_nodes : enum,
 	number_ciliumskeleton_nodes : enum,
 	number_axoninitialsegmentskeleton_nodes : enum,
-	number_myelinatedaxonskeleton_nodes : enum
+	number_myelinatedaxonskeleton_nodes : enum,
+	other: str
+
 --
     *location: 
         x : int
