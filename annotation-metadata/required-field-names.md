@@ -28,7 +28,7 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 # **Classes**
 | Class         | Entities         |
 | ---------------- | ---------------- |
-|Annotation Provenance |Annotator, Score|
+|Annotation Provenance |Annotator, Score, Co-Registration, Versioning|
 |Cell|Cell Types, Neuron Types, Glia Types, Regions of Interest, Optional Cell Properties|
 |Mitochondria|Optional Mitochondria Properties|
 |Dendrite|Dendrite Properties, Synapse Site, Optional Properties|
@@ -56,8 +56,11 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 |Annotator|other|string text|Annotator properties that are not defined|
 |Score| int | user_validation, annotation_used, annotation_reviewed, review_time_hours, edit_amount| Assigning a depersonalized score from source of the annotation (individual or method used), the number of users who validated it, the number of times it has been used or reviewed, and other relevant metrics will foster a quality controlled annotation|
 |Score|other|string text|Score properties that are not defined|
-
-
+|Co-Registration|enum|object_id|A field for co-registration, annotation objects can serve as connectors between datasets, providing a means to navigate and integrate information from various sources|
+|Co-Registration||other|string text|Co-Registration properties that are not defined|
+|Versioning|int|version_checkpoint_value|Annotation version value (i.e. Version "1", "1,1", etc.)|
+|Versioning|str|version_checkpoint_updates|Documenting changes made in version|
+|Versioning|other|str|Other version properties not currently defined|
 
 
 
@@ -85,11 +88,9 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 # **Dendrite**
 | Entity           | Data Type      | Allowed Values | Definition | 
 | ---------------- | -------------- | -------------- | ---------- |
-|Dendrite Properties|enum|apical_dendrite, basal_dendrite |  Dendrite property types (enum)  |    
-|Dendrite Properties|str|base_neuron_id| Dendrite property types (str) |
+|Dendrite Properties|enum|apical_dendrite, basal_dendrite, base_neuron_id|  Dendrite property types (enum)  |    
 |Dendrite Properties|other|string text|  Dendrite property types that does not fit the defined options |    
-|Synapse Site|enum|type, class_label| The location where nerve impulses are transmitted and received (enum)|
-|Synapse Site|str|neuron_id| The location where nerve impulses are transmitted and received (str)|
+|Synapse Site|enum|type, class_label, neuron_id| The location where nerve impulses are transmitted and received (enum)|
 |Synapse Site|other|string text| The location where nerve impulses are transmitted and received that does not fit the defined options|
 | Optional Dendrite Properties | enum | number_dendriteskeleton_node, number_dendriticspineskeleton_nodes, number_ciliumskeleton_nodes,  dendritic_shaft, dendritic_spine | Optional dendrite enumeration property types |
 | Optional Dendrite Properties | other | string text | Optional dendrite properties that do not fit the defined options |
