@@ -47,7 +47,7 @@ Cleft -[#darkred]-* Synapse
 Mitochondria -[#darkred]-* All_Cell_Compartments
 SynapticVesicle -[#darkred]-* Synapse
 
-class Annotation Provenance{
+class Annotation_Provenance{
 	*Annotator: 
 	contributor(s) : enum, 
 	contributor_method : enum, 
@@ -67,9 +67,15 @@ class Annotation Provenance{
 	other: str
 
 
-	*Co-Registration
+	*Co-Registration:
 	object_id : enum, 
 	other: str
+
+	*Versioning:
+	version_checkpoint_value: int, 
+	version_checkpoint_updates: str, 
+	other
+
 
 
 
