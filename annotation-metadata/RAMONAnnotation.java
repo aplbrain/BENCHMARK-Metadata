@@ -12,7 +12,51 @@ RAMONROI <---> RAMONCell
 
 left to right direction
 
-title Revised RAMON Nomenclature
+title Harmonized RAMON Nomenclature
+
+class RAMONAnnotation{
+Project: enum,
+SegmentClass: enum,
+Neuron: enum,
+Synapses: enum,
+Organelles: enum,
+XYZ_ Offset: enum,
+Resolution: byte,
+ID: enum,
+Confidence: enum,
+KVPairs: enum,
+Status: enum,
+Author: string,
+Last modified: enum,
+URI: enum,
+Annotation Representation: enum
+----
+*Annotator: 
+	contributor(s) : enum, 
+	contributor_method : enum, 
+	novice_annotator : enum, 
+	expert_annotator : enum, 
+	novice_proofreader : enum, 
+	expert_proofreader : enum, 
+	other : str
+
+*Score:
+	user_validation : int, 
+	annotation_used : int, 
+	annotation_reviewed : int, 
+	review_time_hours : int, 
+	edit_amount : int,
+	other : str
+
+*Co-Registration:
+	object_id : enum, 
+	other : str
+
+*Versioning:
+	version_checkpoint_value : int, 
+	version_checkpoint_updates : str, 
+	other : str
+}
 
 
 class RAMONSegment{
@@ -37,6 +81,7 @@ Dendrite:
 	apical_dendrite : boolean,
 	basal_dendrite : boolean,
 	base_neuron_id : enum
+
 *Synapse Site:
 	neuron_id : enum,
 	type : str,
@@ -50,22 +95,27 @@ Dendrite:
 	dendritic_spine : boolean
 
 Axon:
-*Axon Properties: 
+	*Axon Properties: 
 	axon_terminal  : boolean,
 	myelinated_axon : boolean,
-	base_neuron_id : enum
+	base_neuron_id : enum,
+	other : str
 
 *Synapse Site:
-	pre_synaptic_site : enum,
-	neuron_id : enum,
-	type : str,
+		pre_synaptic_site : enum,
+		neuron_id : enum,
+		type : str,
+		class_label : str, 
+		other : str
 
 *Optional Axon Properties:
-        number_of_axons : enum,
-        number_axonskeleton_nodes : enum,
-        number_ciliumskeleton_nodes : enum,
-        number_axoninitialsegmentskeleton_nodes : enum,
-        number_myelinatedaxonskeleton_nodes : enum
+	number_of_axons : enum,
+	number_axonskeleton_nodes : enum,
+	number_ciliumskeleton_nodes : enum,
+	number_axoninitialsegmentskeleton_nodes : enum,
+	number_myelinatedaxonskeleton_nodes : enum,
+	other : str
+
 }
 
 class RAMONCell{
@@ -80,29 +130,31 @@ URI: enum,
 Annotation Representation: enum
 ----
 Cell:
-*Neuron : boolean
-
-*Neuron Types:
+*Cell Types:
+	neuron : str, 
+	glia : str
+	
+	*Neuron Types:
 	sensory_neurons: enum,
 	motor_neurons : enum,
-	interneurons: enum
+	interneurons: enum, 
+	other : str
 
-*Glia : boolean
+	*Glia Types: 
+		astrocytes : enum,
+		microglia : enum,
+		oligodendrocyte : enum, 
+		other : str
 
-*Glia Types: 
-	astrocytes : enum,
-	microglia : enum,
-	oligodendrocyte : enum
-
-*Optional Cell Properties:
-	multipolar : enum,
-	bipolar : enum,
-	unipolar : enum,
-	anaxonic : enum,
-	number_of_blood_vessel_cells : enum,
-	interneuron-type : str,
+	*Optional Cell Properties:
+		multipolar : enum,
+		bipolar : enum,
+		unipolar : enum,
+		anaxonic : enum,
+		blood_vessel_type : enum,
+		interneuron-type : str,
         pyramidal : enum,
-	c-shaped : enum,
+		c-shaped : enum,
         spiny-stellate : enum,
         excitatory/spiny-with-atypical-tree : enum,
         sparsely-spiny : enum,
@@ -111,7 +163,7 @@ Cell:
         web-like-interneuron : enum,
         lot-of-axon : enum,
         EIRatio : enum,
-	precursor : enum
+		precursor : enum
 }
 
 class RAMONSubcellular{
@@ -154,7 +206,8 @@ Regions of Interest:
 *ROI:
 	layer : enum,
 	brain_regions : enum,
-	cylinder : enum
+	cylinder : enum, 
+	other : str
 }
 
 
@@ -170,15 +223,17 @@ URI: enum,
 Annotation Representation: enum
 ---
 Synapse:
-*Chemical: 
-	presynaptic : boolean,
-	postsynaptic : boolean
+	*Chemical: 
+		presynaptic : enum,
+		postsynaptic : enum, 
+		other : str
 
-*Electrical: 
-	gap_junction: enum
-	
-*Optional Properties:
-	synapse_type: str,
+	*Electrical: 
+		gap_junction_location : str, 
+		gap_junction_id : enum, 
+		other : str
+
+	*Optional Synapse Properties:
 	number_output_synapses : enum,
 	number_input_synapses : enum,
 	number_excitatory_synapses : enum,
@@ -186,7 +241,9 @@ Synapse:
 	number_outgoing_synapses : enum,
 	number_incoming_synapses : enum,
 	number_incomingexcitatory_synapses : enum,
-	number_incominginhibitory_synapses : enum
+	number_incominginhibitory_synapses : enum, 
+	other : str
+
 }
 
 @enduml
