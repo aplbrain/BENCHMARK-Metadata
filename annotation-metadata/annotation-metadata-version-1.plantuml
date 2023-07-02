@@ -1,280 +1,334 @@
 @startuml
-skinparam backgroundColor transparent
-skinparam classBackgroundColor LightGoldenRodYellow
-skinparam classarrows red
-skinparam classFontName Menlo
-skinparam colors yellow
-skinparam ActorBorderColor red
-skinparam classborderColor darkred
-left to right direction
-
-
-
-title Neuronal Properties for BENCHMARK Project
+title Testing New Standardization Effort Version 1.1
 /'
 The axon is connected to the Presynaptic 
 sending a chemical to be released into the 
 Postsynaptic.
 '/
-
-
-Axon -[#darkred]-* Axon_Initial_Segment
-
-Spine_Apparatus -[#darkred]* Spine
+Cell ---[#darkred]-* Soma
 Soma -[#darkred]-* Spine
-Dendrite-[#darkred]-* Spine
-Synapse ---[#darkred]-* Spine
-Myelin -[#darkred]-* Axon
-Synapse -[#darkred]-* Bouton
-Organelles -[#darkred]-* Gap_Junctions
-Gap_Junctions -[#darkred]-* Axon
-Synapse -[#darkred]-* Soma 
-Synapse -[#darkred]-* Axon_Initial_Segment
 Soma ------[#darkred]-* Axon
 Soma -[#darkred]-* Dendrite
-Cell ---[#darkred]-* Soma
-Soma *-[#darkred]- Organelles
-Other -[#darkred]-* Soma
+Soma -[#darkred]-* Cilia 
+Dendrite -[#darkred]-* Shaft
+Dendrite -[#darkred]-* Spine
+Axon -[#darkred]-* Axon_Initial_Segment
+Axon -[#darkred]-* Bouton
+Gap_Junctions -[#darkred]-* Axon
+Myelin -[#darkred]-* Axon
+Synapse -[#darkred]-* Axon
+Synapse -[#darkred]-* Dendrite
+Synapse -[#darkred]-* Axon_Initial_Segment
+Synapse -[#darkred]-* Bouton
+Synapse ---[#darkred]-* Spine
+Synapse ---[#darkred]-* Shaft
+Synapse -[#darkred]-* Soma 
+Spine_Apparatus -[#darkred]* Spine
+Organelles -[#darkred]-* Gap_Junctions
 Organelles -[#darkred]-* Nucleus
-Nucleus -[#darkred]-* Soma
 Organelles -[#darkred]-* Mitochondria
-Organelles -[#darkred]-* Cleft
-Cleft -[#darkred]-* Synapse 
 Organelles -[#darkred]-* SynapticVesicle
 Organelles -[#darkred]-* Myelin
-Axon -[#darkred]-* Bouton
-Mitochondria -[#darkred]-* All_cell_compartments
-Soma -[#darkred]-* Cilia 
-Soma -[#darkred]-* Neurite
+Organelles -[#darkred]-* Cleft
+Organelles -[#darkred]-* Spine_Apparatus
+Nucleus -[#darkred]-* Soma
+Cleft -[#darkred]-* Synapse 
+Mitochondria -[#darkred]-* All_Cell_Compartments
+SynapticVesicle -[#darkred]-* Synapse
 
-Soma *-[#darkred]-* Organelles
-Axon *-[#darkred]* Organelles
-Dendrite *-[#darkred]-* Organelles
+class Annotation_Provenance{
+	*Annotator: 
+	contributor(s) : str, 
+	contributor_method : enum, 
+	novice_annotator : boolean, 
+	expert_annotator : boolean, 
+	novice_proofreader : boolean, 
+	expert_proofreader : boolean, 
+	other : str
 
-class Cell{
-	*Neuron: 
-		*Neuron Types:
-		Multipolar 
-		Bipolar
-		Unipolar 
-		Anaxonic
-		
-		*Multipolar Neurons: 
-			pyramidal_Cell : Boolean, 
-			Purkinje_Cell : Boolean,
-			stellate_Cell : Boolean, 
-			fusiform_Cell : Boolean,
-			glomerular_Cell : Boolean,
-			Granule_Cell : Boolean,
+	*Score:
+	annotation_reviewed : int, 
+	review_time_hours : int, 
+	condfidence_value: int,
+	other : str
 
-			*Optional Properties: 
-				interneuron
-		
-		*Neuron Properties
-		number_output_synapses : int,
-		number_input_synapses : int,
-		number_excitatory_synapses : int,
-		number_inhibitory_synapses : int,
-        number_outgoing_synapses : int,
-	    number_incoming_synapses : int,
-	    number_incomingexcitatory_synapses : int,
-	    number_incominginhibitory_synapses : int,
-		
-	*Glia: 
-		Astrocytes : Boolean,
-		Ependymal_Cell: Boolean,
-		Microglia : Boolean,
-		Oligodendrocyte : Boolean,
+	*Co-Registration:
+	object_id : str, 
+	other : str
 
-	*Regions of Interest 
-	layer : int,
-	brain_regions : int, 
-	cylinder : int
-
-	*Optional Cell Properties 
-		number_dendriteskeleton_nodes : int,
-		number_axonskeleton_nodes : int,
-		number_dendriticspineskeleton_nodes : int,
-		number_ciliumskeleton_nodes : int,
-		number_axoninitialsegmentskeleton_nodes : int,
-		number_myelinatedaxonskeleton_nodes : int,
-		Spinyness : int,
-		WM : int, 
-        layer-unclassified : int,
-        pyramidal : int,
-        neuron : int, 
-		interneuron: int,
-		c-shaped : int,
-        blood-vessel-cell : int,
-        spiny-stellate : int,
-        excitatory/spiny-with-atypical-tree : int,
-        thin-apical-dendrite : int,
-        bipolar : int,
-        inverted-apical-dendrite : int,
-        unusually-thin-dendrites : int,
-        sparsely-spiny : int,
-        lots-of-spines : int,
-        possible-interneuron : int,
-        web-like-interneuron : int,
-        lot-of-axon : int,
-        EIRatio : int,
-		precursor : int
+	*Versioning:
+	version_checkpoint_value : int, 
+	version_checkpoint_updates : str, 
+	other : str
 }
 
-
-class Other{
-* Plasma Membrane
+class Cell{
+	*CellTypes [boolean]
+	*NeuronType [enum]
+	*OtherNeuronType [str]
+	*GliaTypes [enum]
+	*RegionsofInterest [enum]
+	*OptionalCellProperties [enum]
+}
+interface CellTypes{
+	neuron 
+	glia
+}
+enum NeuronType{
+	sensory_neurons
+	motor_neurons
+	interneurons
+}
+enum GliaTypes{
+	astrocytes
+	microglia 
+	oligodendrocyte 
+}	
+struct OtherGliaTypes{
+		str}
+struct OtherNeuronType{
+	str}
+enum RegionsofInterest{
+	layer
+	brain_regions
+	cylinder
+}
+struct OtherRegionsofInterest{
+	str
+}
+enum OptionalCellProperties{
+		multipolar 
+		bipolar
+		unipolar
+		anaxonic
+		blood_vessel_type
+		interneuron-type
+        pyramidal
+		c-shaped
+        spiny-stellate
+        excitatory/spiny-with-atypical-tree
+        sparsely-spiny
+        lots-of-spines
+        possible-interneuron
+        web-like-interneuron
+        lot-of-axon
+        EIRatio
+		precursor
 }
 
 class Bouton{
-
 }
 
 class Mitochondria{
-*Optional Properties:
-Lipids,
-Proteins
+    *OptionalMitochondriaProperties
+    *OtherOptionalMitochondriaProperties
 }
 
+enum OptionalMitochondriaProperties{
+    lipids 
+    proteins
+}
+struct OtherOptionalMitochondriaProperties{
+str
+}
+enum DendriteProperties{
+    apical_dendrite
+    basal_dendrite 
+    base_neuron_id
+    }
 
+struct OtherOptionalDendriteProperties{
+str
+}
+
+enum SynapseSite{
+type
+class_label
+neuron_id
+}
+		
+struct OtherSynapseSite{
+    str
+}
 class Dendrite{
-*Dendrite Properties: 
-		Apical_dendrite : Boolean,
-		Basal_dendrite : Boolean,
-		base_neuron_id: int,
+        *DendriteProperties
+        *OtherOptionalDendriteProperties
+        *SynapseSite
+        *OtherSynapseSite
+        *location_DendriteProperties
+}
+enum OptionalDendriteProperties{
+		number_dendriteskeleton_nodes
+		number_dendriticspineskeleton_nodes
+		number_ciliumskeleton_nodes
+		dendritic_shaft
+		dendritic_spine
+        }
 
-*Synapse Site:
-		post_synaptic_partner : 
-			neuron_id : long_int,
-			id : long_int,
-			type : int,
-			class_label : str,
-			base_neuron_id : long_int
-
-	*Optional Dendrite Properties:
-		Dendritic_shaft : Boolean,
-		Dendritic_spine : Boolean,
---
+struct OtherOptionalDendriteProperties{
+    str
+}      
+interface location_DendriteProperties{
     *location: 
-        x : int,
-        y : int,
+        x : int
+        y : int
         z : int
    
     *bounding_box: 
-        start : 
-            x : int,
-            y : int,
+            x : int
+            y : int
             z : int
        
       *size: 
-            x : int,
-            y : int,
+            x : int
+            y : int
             z : int
-
-	*layer: 
 } 
 
 class Spine_Apparatus{
-
 }
-
 
 class Spine{
---
-*Optional Properties:
-Spine,
-Spine-like Protrusion
+    *OptionalSpineProperties
 }
+
+entity OptionalSpineProperties{
+    number_of_spines
+}
+struct StringOptionalSpineProperties{
+    spine_protrusions
+    other
+    }
 
 
 class Soma{
-*Optional Properties:
-	Cell Body
-
+*Optional Soma Properties
 }
+struct OptionalSomaProperties{
+str}
+interface OptionalSomaProperties{
+    cell body}
 
 class Synapse{
-	*Chemical: 
-		Presynaptic : Boolean,
-		Postsynaptic : Boolean,
-		Cleft : Boolean,
-	*Electrical: 
-		Cell_ID : int,
-	
-	*Optional Properties:
-	Smooth, 
-	Spine synapse, 
-	Spine ID No.,
-	Synapse type, 
-	Layer,
-
-
-
+    *Chemical
+    *Electrical
+    *OptionalSynapseProperties
+    *otherOptionalSynapseProperties
+    }
+enum Chemical{
+		presynaptic
+		postsynaptic
+    }
+struct StringChemical{
+		other 
+        }
+enum Electrical{
+		gap_junction_id
+        }
+struct StringElectrical{
+    gap_junction_location 
+    other
+        }
+enum OptionalSynapseProperties{
+	number_output_synapses 
+	number_input_synapses 
+	number_excitatory_synapses
+	number_inhibitory_synapses
+	number_outgoing_synapses
+	number_incoming_synapses
+	number_incomingexcitatory_synapses
+	number_incominginhibitory_synapses
 }
+struct otherOptionalSynapseProperties{
+    other}
 
 class Organelles{
-	*Ribosomes : Boolean,
-    *Endoplasmic_Reticulum : Boolean,
-	*Mitochondria : Boolean,
-	*Golgi_Apparatus : Boolean,
-	*Spine_Apparatus : Boolean,
-    *SynapticVesicle : Boolean,
-	*Nucleus : Boolean
-	*Gap_Junctions
-	*Myelin
-	*Plasma Membrane
+	*Ribosomes : boolean,
+    *Endoplasmic_Reticulum : boolean,
+	*Mitochondria : boolean,
+	*Golgi_Apparatus : boolean,
+	*Spine_Apparatus : boolean,
+    *SynapticVesicle : boolean,
+	*Nucleus : boolean,
+	*Gap_Junctions : boolean,
+	*Myelin : boolean,
+	*Plasma Membrane : boolean
 }
+
 class Nucleus{
-*Optional Properties:
-Nucleolus
+*Optional Nucleus Properties
+*otherNucleusProperties
 }
-
-
-SynapticVesicle -[#darkred]-* Synapse
-Spine_Apparatus *-[#darkred]- Organelles
-
+interface NucleusProperties{
+nucleolus 
+}
+struct otherNucleusProperties{
+str
+}
 
 class Axon{
-	*Axon Properties: 
-	Axon_Initial_Segment : Boolean,
-	Axon_terminal  : Boolean,
-	Myelinated_axon : Boolean,
-	base_neuron_id: int,
+    *Axon Properties
+    }
 
-*Synapse Site:
-		pre_synaptic_site : 
-		neuron_id : long_int,
-		id : long_int,
-		type : int,
-		class_label : str,
-		base_neuron_id : long_int,
---
-    *location: 
-        x : int,
-        y : int,
+enum AxonProperties{
+	axon_terminal 
+	myelinated_axon 
+}
+	
+struct StringAxonProperties{
+    base_neuron_id
+	other
+    }
+
+
+enum SynapseSite{
+		pre_synaptic_site
+		neuron_id
+}
+struct StringSynapseSite{
+		type 
+		class_label 
+		other 
+}
+
+enum OptionalAxonProperties{
+	number_of_axons
+	number_axonskeleton_nodes
+	number_ciliumskeleton_nodes
+	number_axoninitialsegmentskeleton_nodes
+	number_myelinatedaxonskeleton_nodes
+    }
+
+struct StringOptionalAxonProperties{
+	other
+}
+
+interface OptionalAxonPropertieslocation{
+        x : int
+        y : int
         z : int
    
     *bounding_box: 
-        start : 
-            x : int,
-            y : int,
+            x : int
+            y : int
             z : int
        
        *size: 
-            x : int,
-            y : int,
+            x : int
+            y : int
             z : int
-
-		*layer: 
 } 
 class SynapticVesicle{
 
 } 
 
 class Axon_Initial_Segment{
-	*Optional Properties:
-	Myelin
+	*Optional Axon_Initial_Segment Properties
 
 }
-@enduml
+interface Optional_Axon_Initial_Segment_Properties{
+    myelin 
+}
 
+
+@enduml
