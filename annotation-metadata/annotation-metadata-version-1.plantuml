@@ -5,69 +5,98 @@ The axon is connected to the Presynaptic
 sending a chemical to be released into the 
 Postsynaptic.
 '/
-Cell ---[#darkred]-* Soma
-Soma -[#darkred]-* Spine
-Soma ------[#darkred]-* Axon
-Soma -[#darkred]-* Dendrite
-Soma -[#darkred]-* Cilia 
-Dendrite -[#darkred]-* Shaft
-Dendrite -[#darkred]-* Spine
-Axon -[#darkred]-* Axon_Initial_Segment
-Axon -[#darkred]-* Bouton
-Gap_Junctions -[#darkred]-* Axon
-Myelin -[#darkred]-* Axon
-Synapse -[#darkred]-* Axon
-Synapse -[#darkred]-* Dendrite
-Synapse -[#darkred]-* Axon_Initial_Segment
-Synapse -[#darkred]-* Bouton
-Synapse ---[#darkred]-* Spine
-Synapse ---[#darkred]-* Shaft
-Synapse -[#darkred]-* Soma 
-Spine_Apparatus -[#darkred]* Spine
-Organelles -[#darkred]-* Gap_Junctions
-Organelles -[#darkred]-* Nucleus
-Organelles -[#darkred]-* Mitochondria
-Organelles -[#darkred]-* SynapticVesicle
-Organelles -[#darkred]-* Myelin
-Organelles -[#darkred]-* Cleft
-Organelles -[#darkred]-* Spine_Apparatus
-Nucleus -[#darkred]-* Soma
-Cleft -[#darkred]-* Synapse 
-Mitochondria -[#darkred]-* All_Cell_Compartments
-SynapticVesicle -[#darkred]-* Synapse
+Cell --> Soma
+Soma --> Spine
+Soma --> Axon
+Soma --> Dendrite
+Soma --> Cilia 
+Dendrite --> Shaft
+Dendrite --> Spine
+Axon --> Axon_Initial_Segment
+Axon --> Bouton
+Gap_Junctions --> Axon
+Myelin --> Axon
+Synapse --> Axon
+Synapse --> Dendrite
+Synapse --> Axon_Initial_Segment
+Synapse --> Bouton
+Synapse --> Spine
+Synapse --> Shaft
+Synapse --> Soma 
+Spine_Apparatus --> Spine
+Organelles --> Gap_Junctions
+Organelles --> Nucleus
+Organelles --> Mitochondria
+Organelles --> SynapticVesicle
+Organelles --> Myelin
+Organelles --> Cleft
+Organelles --> Spine_Apparatus
+Nucleus --> Soma
+Cleft --> Synapse 
+Mitochondria --> All_Cell_Compartments
+SynapticVesicle --> Synapse
+Synapse --> Chemical
+Synapse --> Electrical
+Dendrite -->location_DendriteProperties
+Dendrite --> OptionalDendriteProperties
+Mitochondria -->OptionalMitochondriaProperties
+Axon_Initial_Segment-->Optional_Axon_Initial_Segment_Properties
 
 class Annotation_Provenance{
-	*Annotator: 
-	contributor(s) : str, 
-	contributor_method : enum, 
-	novice_annotator : boolean, 
-	expert_annotator : boolean, 
-	novice_proofreader : boolean, 
-	expert_proofreader : boolean, 
-	other : str
+	*Annotator
+	*Score
+	*Co-Registration
+	*Versioning
+}
+class Annotator{
+	contributor_method [enum]
+	novice_annotator [boolean]
+	expert_annotator [boolean]
+	novice_proofreader [boolean]
+	expert_proofreader [boolean]
+    contributor [str]
+	other [str]
 
-	*Score:
-	annotation_reviewed : int, 
-	review_time_hours : int, 
-	condfidence_value: int,
-	other : str
-
-	*Co-Registration:
-	object_id : str, 
-	other : str
-
-	*Versioning:
-	version_checkpoint_value : int, 
-	version_checkpoint_updates : str, 
-	other : str
+}
+class Score{
+    annotation_reviewed [int]
+	review_time_hours [int]
+	condfidence_value [int]
+	other [int]
 }
 
+class CoRegistration{
+	object_id [str]
+	other [str]
+}
+class Versioning{
+	version_checkpoint_value [int]
+	version_checkpoint_updates [str]
+	other [str]
+}
+
+Annotation_Provenance --> Annotator
+Annotator -->Organelles
+Annotation_Provenance --> Score
+Score -->Organelles
+Annotation_Provenance --> CoRegistration
+CoRegistration -->Organelles
+Annotation_Provenance --> Versioning
+Versioning -->Organelles
+
+
+Cell --> CellTypes
+CellTypes -->NeuronType
+CellTypes --> GliaType
+Cell -->RegionsofInterest
 class Cell{
 	*CellTypes [boolean]
+    *GliaType [enum]
 	*NeuronType [enum]
+    *OtherGliaType [str]
 	*OtherNeuronType [str]
-	*GliaTypes [enum]
 	*RegionsofInterest [enum]
+    *OtherRegionsofInterest [str]
 	*OptionalCellProperties [enum]
 }
 interface CellTypes{
@@ -79,23 +108,30 @@ enum NeuronType{
 	motor_neurons
 	interneurons
 }
-enum GliaTypes{
+enum GliaType{
 	astrocytes
 	microglia 
 	oligodendrocyte 
 }	
 struct OtherGliaTypes{
-		str}
+    other
+    }
 struct OtherNeuronType{
-	str}
+    other
+    }
+GliaType --> OtherGliaTypes
+NeuronType -->OtherNeuronType
+
 enum RegionsofInterest{
 	layer
 	brain_regions
 	cylinder
 }
 struct OtherRegionsofInterest{
-	str
-}
+    other
+    }
+RegionsofInterest --> OtherRegionsofInterest
+
 enum OptionalCellProperties{
 		multipolar 
 		bipolar
@@ -120,107 +156,126 @@ class Bouton{
 }
 
 class Mitochondria{
-    *OptionalMitochondriaProperties
-    *OtherOptionalMitochondriaProperties
+    *OptionalMitochondriaProperties [enum]
+    *OtherOptionalMitochondriaProperties [str]
 }
 
 enum OptionalMitochondriaProperties{
     lipids 
     proteins
 }
+
 struct OtherOptionalMitochondriaProperties{
-str
+    other
+    
 }
+Mitochondria --> OtherOptionalMitochondriaProperties
 enum DendriteProperties{
     apical_dendrite
     basal_dendrite 
     base_neuron_id
     }
 
-struct OtherOptionalDendriteProperties{
-str
-}
-
 enum SynapseSite{
 type
 class_label
 neuron_id
 }
-		
+
 struct OtherSynapseSite{
-    str
+    other
+    
 }
 class Dendrite{
-        *DendriteProperties
-        *OtherOptionalDendriteProperties
-        *SynapseSite
-        *OtherSynapseSite
-        *location_DendriteProperties
+        *DendriteProperties [enum]
+        *OptionalDendriteProperties [enum]
+        *OtherOptionalDendriteProperties [str]
+        *SynapseSite [enum]
+        *StringSynapseSite [str]
+        *OtherSynapseSite [str]
+        *location_DendriteProperties [int]
 }
+Dendrite -->OtherSynapseSite
+
+
 enum OptionalDendriteProperties{
-		number_dendriteskeleton_nodes
-		number_dendriticspineskeleton_nodes
-		number_ciliumskeleton_nodes
-		dendritic_shaft
-		dendritic_spine
-        }
+    number_dendriteskeleton_nodes
+    number_dendriticspineskeleton_nodes
+    number_ciliumskeleton_nodes
+    dendritic_shaft
+    dendritic_spine
+}
 
 struct OtherOptionalDendriteProperties{
-    str
-}      
+    other
+}    
+Dendrite --> OtherOptionalDendriteProperties
+
 interface location_DendriteProperties{
     *location: 
-        x : int
-        y : int
-        z : int
+        x 
+        y 
+        z 
    
     *bounding_box: 
-            x : int
-            y : int
-            z : int
+            x 
+            y 
+            z 
        
       *size: 
-            x : int
-            y : int
-            z : int
+            x 
+            y 
+            z 
 } 
 
 class Spine_Apparatus{
 }
 
 class Spine{
-    *OptionalSpineProperties
-}
+    *OptionalSpineProperties [enum]
+    *StringOptionalSpineProperties [str]
 
-entity OptionalSpineProperties{
+}
+Spine -->OptionalSpineProperties
+enum OptionalSpineProperties{
     number_of_spines
 }
 struct StringOptionalSpineProperties{
     spine_protrusions
     other
     }
+Spine -->StringOptionalSpineProperties
 
 
 class Soma{
-*Optional Soma Properties
+*Optional Soma Properties [int]
+*StringOptionalSomaProperties [str]
 }
-struct OptionalSomaProperties{
-str}
+Soma -->OptionalSomaProperties
+
+struct StringOptionalSomaProperties{
+    other
+    }
+Soma -->StringOptionalSomaProperties
 interface OptionalSomaProperties{
-    cell body}
+    cell body
+    }
 
 class Synapse{
-    *Chemical
-    *Electrical
-    *OptionalSynapseProperties
-    *otherOptionalSynapseProperties
+    *Chemical [enum]
+    *StringChemical [str]
+    *Electrical [enum]
+    *StringElectrical [str]
+    *OptionalSynapseProperties [enum]
+    *otherOptionalSynapseProperties [str]
     }
+
 enum Chemical{
 		presynaptic
 		postsynaptic
     }
-struct StringChemical{
-		other 
+struct StringChemical{ 
+    other
         }
 enum Electrical{
 		gap_junction_id
@@ -229,6 +284,10 @@ struct StringElectrical{
     gap_junction_location 
     other
         }
+Synapse --> StringChemical
+Synapse --> StringElectrical
+Synapse --> OptionalSynapseProperties
+
 enum OptionalSynapseProperties{
 	number_output_synapses 
 	number_input_synapses 
@@ -240,56 +299,71 @@ enum OptionalSynapseProperties{
 	number_incominginhibitory_synapses
 }
 struct otherOptionalSynapseProperties{
-    other}
+    other
+}
+Synapse --> otherOptionalSynapseProperties
+Cell --> OptionalCellProperties
+Dendrite -->DendriteProperties
+Dendrite -->SynapseSite
 
 class Organelles{
-	*Ribosomes : boolean,
-    *Endoplasmic_Reticulum : boolean,
-	*Mitochondria : boolean,
-	*Golgi_Apparatus : boolean,
-	*Spine_Apparatus : boolean,
-    *SynapticVesicle : boolean,
-	*Nucleus : boolean,
-	*Gap_Junctions : boolean,
-	*Myelin : boolean,
-	*Plasma Membrane : boolean
+	*Ribosomes [boolean]
+    *Endoplasmic_Reticulum [boolean]
+	*Mitochondria [boolean]
+	*Golgi_Apparatus [boolean]
+	*Spine_Apparatus [boolean]
+    *SynapticVesicle [boolean]
+	*Nucleus [boolean]
+	*Gap_Junctions [boolean]
+	*Myelin [boolean]
+	*Plasma Membrane [boolean]
 }
 
 class Nucleus{
-*Optional Nucleus Properties
-*otherNucleusProperties
+*NucleusProperties [str]
+*otherNucleusProperties [str]
 }
-interface NucleusProperties{
+struct NucleusProperties{
 nucleolus 
 }
 struct otherNucleusProperties{
-str
-}
+    other
+    }
+
+Nucleus --> NucleusProperties
+Nucleus --> otherNucleusProperties
 
 class Axon{
-    *Axon Properties
+    *Axon Properties [enum]
+    *OptionalAxonProperties [enum]
+    *OptionalAxonPropertieslocation [int]
+    *StringAxonProperties [str]
+    *StringOptionalAxonProperties [str]
     }
 
 enum AxonProperties{
 	axon_terminal 
 	myelinated_axon 
 }
-	
+Axon --> AxonProperties
 struct StringAxonProperties{
     base_neuron_id
 	other
     }
-
-
+Axon -->StringAxonProperties
 enum SynapseSite{
 		pre_synaptic_site
 		neuron_id
 }
 struct StringSynapseSite{
-		type 
-		class_label 
-		other 
+    type 
+    class_label 
+    other 
 }
+Dendrite --> StringSynapseSite
+
+Axon --> OptionalAxonProperties
+Axon --> OptionalAxonPropertieslocation
 
 enum OptionalAxonProperties{
 	number_of_axons
@@ -299,31 +373,33 @@ enum OptionalAxonProperties{
 	number_myelinatedaxonskeleton_nodes
     }
 
+
 struct StringOptionalAxonProperties{
-	other
+    other
 }
+Axon --> StringOptionalAxonProperties
 
 interface OptionalAxonPropertieslocation{
-        x : int
-        y : int
-        z : int
+        x 
+        y 
+        z 
    
     *bounding_box: 
-            x : int
-            y : int
-            z : int
+            x 
+            y 
+            z 
        
        *size: 
-            x : int
-            y : int
-            z : int
+            x 
+            y 
+            z
 } 
 class SynapticVesicle{
 
 } 
 
 class Axon_Initial_Segment{
-	*Optional Axon_Initial_Segment Properties
+	*Optional_Axon_Initial_Segment_Properties
 
 }
 interface Optional_Axon_Initial_Segment_Properties{
