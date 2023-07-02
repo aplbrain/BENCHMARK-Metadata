@@ -1,5 +1,5 @@
 @startuml
-title Testing New Standardization Effort Version 1.1
+title New Standardization Effort Version 1.1
 /'
 The axon is connected to the Presynaptic 
 sending a chemical to be released into the 
@@ -40,7 +40,6 @@ Synapse --> Electrical
 Dendrite -->location_DendriteProperties
 Dendrite --> OptionalDendriteProperties
 Mitochondria -->OptionalMitochondriaProperties
-Axon_Initial_Segment-->Optional_Axon_Initial_Segment_Properties
 
 class Annotation_Provenance{
 	*Annotator
@@ -402,9 +401,10 @@ class Axon_Initial_Segment{
 	*Optional_Axon_Initial_Segment_Properties
 
 }
-str Optional_Axon_Initial_Segment_Properties{
+struct Optional_Axon_Initial_Segment_Properties{
     myelin 
 }
+Axon_Initial_Segment-->Optional_Axon_Initial_Segment_Properties
 
 
 @enduml
