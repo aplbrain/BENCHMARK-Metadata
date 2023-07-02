@@ -402,7 +402,7 @@ class Axon_Initial_Segment{
 	*Optional_Axon_Initial_Segment_Properties
 
 }
-interface Optional_Axon_Initial_Segment_Properties{
+str Optional_Axon_Initial_Segment_Properties{
     myelin 
 }
 
