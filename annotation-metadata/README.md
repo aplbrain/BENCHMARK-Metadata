@@ -1,6 +1,6 @@
 # Draft Annotation Metadata Standards for EM and XRM Connectomics Community
 In this folder, you will find
-* A draft metadata description: [schema](annotation-metadata-version-1.1.plantuml), [diagram](annotation-metadata-version-1.png)
+* A draft metadata description: [schema](annotation-metadata-draft.plantuml), [diagram](annotation-metadata.png), [description](annotation-metadata-draft.plantuml
 
 ## Extant schemas examined
 * vEM community draft metadata standards
