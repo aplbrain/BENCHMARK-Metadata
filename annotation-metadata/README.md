@@ -8,7 +8,7 @@ In this folder, you will find
 * Metadata in use by NEMO, BIL, DANDI archives
 
 ## Schema Development Process Followed
-Comparative analysis of datasets and existing metadata in BossDB and other systems. Review of experimental goals and required annotation types.
+Comparative analysis of datasets and existing metadata in BossDB and other systems. Review of experimental goals and required annotation types. 
 
 
 
