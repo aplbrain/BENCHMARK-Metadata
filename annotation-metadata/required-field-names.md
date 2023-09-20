@@ -1,4 +1,4 @@
----
+
 # **Required Field Names**
 ---
 
@@ -10,34 +10,7 @@ A class can have multiple entities or corresponding data types, each representin
 
 <img width="1116" alt="Screen Shot 2023-06-01 at 10 59 44 AM" src="https://github.com/aplbrain/BENCHMARK-Metadata/assets/66258538/77f28ae5-c305-4469-81fb-34fea28dcd20">
 
-<<<<<<< HEAD
-Neuroscience data can be diverse and complex, requiring flexible approaches to accommodate different designs and analysis. This growing set of definitons seeks to allow users to explicitly define values while maintaing fluidity for collaboration. 
-=======
-| Field Name       | Definition  | Allowed Values |
-| ---------------- | ----------- | -------------- |
-| contributorName  |  Person (last name, first name) or organization (e.g., research group, department, institution) contributing to or responsible for the project, but does not include funders of the project. If a contributor has more than one contributorType, use a separate line for each.  | String |
-| Creator | Main researchers involved in producing the data. There must be at least one creator. | String |
-| contributorType | Categorization of the role of the contributor. Recommended: ProjectLeader (for principal investigator), ResearchGroup (for lab, department, or division). | String | 
-| nameType | Type of contributorName | String |
----
----
-<br/><br/> 
-
-# **Data Type**
-| Field Name       | Definition  | Allowed Values |
-| ---------------- | ----------- | -------------- |
-| objectID | ... | 0 $\leq$ ObjectID $\leq$ nE|
-| smallInt | Indicates a value of 1 or 2 | 1 or 2 | 
-| Integer | Values with long integer will be allowed to have up to 6 digits | 0 $\leq$ int $\leq$ 6 |
-| longNumber | Values with long integer will be allowed to have up to 6 digits | 0 <= nLong 11  |
-| Float | ... | 0 $\leq$ float $\leq$ -nE |
-| String | Add Definition Here | 0 $\leq$ str $\leq$ 9 | 
----
----
-
-<br/><br/> 
->>>>>>> 91f8e8bd6b85e87e9b0b19b047a7652be74ef5d1
-
+Neuroscience data can be diverse and complex, requiring flexible approaches to accommodate different designs and analysis. This growing set of definitions seeks to allow users to explicitly define values while maintaining fluidity for collaboration. 
 
 # **Data Types**
 | Data Type       | Details  | Allowed Values |
@@ -80,27 +53,26 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | ---------------- | -------------- | -------------- | ---------- |
 |Annotator|enum|contributor(s), contributor_method, novice_annotator, expert_annotator, novice_proofreader, expert_proofreader|Keeping track of users, their roles, and methods in the annotation process provides insights into their expertise, potential biases, and reliability of their contributions|
 |Annotator|other|string text|Annotator properties that are not defined|
-|Score| int | user_validation, annotation_used, annotation_reviewed, review_time_hours, edit_amount| Assigning a depersonalized score from source of the annotation (individual or method used), the number of users who validated it, the number of times it has been used or reviewed, and other relevant metrics will foster a quality controlled annotation|
+|Score| int | user_validation, annotation_used, annotation_reviewed, review_time_hours, edit_amount| Assigning a depersonalized score from source of the annotation (individual or method used), the number of users who validated it, the number of times it has been used or reviewed, and other relevant metrics will foster a quality-controlled annotation|
 |Score|other|string text|Score properties that are not defined|
 |Co-Registration|enum|object_id|A field for co-registration, annotation objects can serve as connectors between datasets, providing a means to navigate and integrate information from various sources|
 |Co-Registration||other|string text|Co-Registration properties that are not defined|
-|Versioning|int|version_checkpoint_value|Annotation version value (i.e. Version "1", "1,1", etc.)|
+|Versioning|int|version_checkpoint_value|Annotation version value (i.e., Version "1", "1,1", etc.)|
 |Versioning|str|version_checkpoint_updates|Documenting changes made in version|
 |Versioning|other|str|Other version properties not currently defined|
-
 
 
 # **Cell**
 | Entity           | Data Type      | Allowed Values | Definition | 
 | ---------------- | -------------- | -------------- | ---------- |
-|Cell Types|str|neuron, glia|Cell that work to protect and support neurons in the central nervous system|
+|Cell Types|boolean|neuron, glia|Cell that work to protect and support neurons in the central nervous system|
 |Neuron Types|enum|sensory_neurons, motor_neurons, interneurons|Types of neurons that transmit nerve impulses|
 |Neuron Types|other|string text|Types of neurons that transmit nerve impulses that do not fit the defined options|
 |Glia Types|enum|astrocytes, microglia, oligodendrocyte|Types of glia that protect and support neurons in the central nervous system|
 |Glia Types|other|string text|Types of glia that protect and support neurons in the central nervous system that does not fit the defined options|
 |Regions of Interest|enum|layer, brain_regions_cylinder|Relevant measurement range|
 |Regions of Interest|other|string text|Relevant measurement range that does not fit the defined options|
-|Optional Cell Properties|enum|multipolar, bipolar, unipolar, anaxonic, blood_vessel_type, interneuron-type, pyramidal, c-shapes, excitatory/spiny-with-atypical-treem, sparsely-spiny, lots-of-spines,  web-like-interneuron, lot-of-axon, EIRatio, precursor| Optional documentation of cells|
+|Optional Cell Properties|enum|multipolar, bipolar, unipolar, anaxonic, blood_vessel_type, interneuron-type, pyramidal, c-shapes, excitatory/spiny-with-atypical-treem, sparsely spiny, lots-of-spines,  web-like-interneuron, lot-of-axon, EIRatio, precursor| Optional documentation of cells|
 |Optional Cell Properties|other|string text| Optional documentation of cells that does not fit the defined options|
 
 # **Mitochondria**
@@ -108,7 +80,6 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | ---------------- | -------------- | -------------- | ---------- |
 |Optional Mitochondria Properties|enum|lipids, proteins| Optional documentation of lipids and proteins found in the mitochondria |
 |Optional Mitochondria Properties|other|string text| Optional documentation of lipids and proteins found in the mitochondria that does not fit the defined options |
-
 
 
 # **Dendrite**
@@ -122,7 +93,6 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | Optional Dendrite Properties | other | string text | Optional dendrite properties that do not fit the defined options |
 
 
-
 # **Spine**
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
@@ -130,13 +100,11 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 |Optional Properties|str|spine_protrusions| Applicable spine  property types depicted as strings |
 |Optional Properties|other|string text| Applicable spine property types that do not fit the defined options |
 
-
 # **Soma**
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
 |Optional Properties|boolean|cell body| Soma optional properties depicted as boolean, determines whether or not there is a cell body|
 |Optional Properties|other|string text| Soma optional property types that do not fit the defined options |
-
 
 
 # **Synapse**
@@ -149,7 +117,6 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | Electrical | other | string text |  Electrical properties that do not fit the defined options| 
 | Optional Properties | enum | number_output_synapses,  number_input_synapses, number_excitatory_synapse, number_inhibitory_synapses, number_outgoing_synapses, number_incoming_synapses, number_incomingexcitatory_synapses, number_incominginhibitory_synapses| Synapse optional properties and its corresponding values |
 | Optional Properties | other | string text| Synapse optional properties that do not fit the defined options|
-
 
 
 # **Organelles**
@@ -173,7 +140,6 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | Nucleolus | other | string text | Nucleus properties that do not fit the defined options |
 
 
-
 # **Axon**
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
@@ -184,7 +150,7 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | Synapse Site | str | neuron_id |  Synapse site string types |
 | Synapse Site | other | string text |  Synapse site that does not fit the defined options |
 | Optional Axon Properties | enum | number_of_axons, number_axonskeleton_nodes,  number_axoninitialskeleton_nodes, number_myelinatedaxonskeleton_nodes | Optional axon enumeration property types |
-| Optional Axon Properties | other |string | Optional axon property types that do not fit defined propeties|
+| Optional Axon Properties | other |string | Optional axon property types that do not fit defined properties|
 
 # **SynapticVesicle**
 | Entity           | Data Type      | Allowed Values | Definition |
@@ -230,3 +196,5 @@ Neuroscience data can be diverse and complex, requiring flexible approaches to a
 | Entity           | Data Type      | Allowed Values | Definition |
 | ---------------- | -------------- | -------------- | ---------- |
 | ... | ... | ... | ... |
+
+
