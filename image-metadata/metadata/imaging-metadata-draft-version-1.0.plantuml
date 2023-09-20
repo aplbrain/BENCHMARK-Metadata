@@ -19,28 +19,15 @@ together {
     class ImageResolution
 }
 
-'   Formatting for readability
-'   Splitting into four pages
 page 2x2
 skinparam pageMargin 10
 skinparam pageBorderColor black
 skinparam pageBorderColor gray 
-
-'
-'   General comments and TO-DOs [mah2022.08.29]
-'   Need to review with special attention to data types and structures. I suspect
-'   this cut has confusions regarding entities vs references to entities.
-'   Need to review all notes, comments and TO-DOs. 
-'   Especially need to provide naming convention guidance for the free-form String parameters.
-'   Need to be clear on just what we need to provide to be consistent with what is
-'   needed and current BossDB best practices.
-'
   
 '   ------------------------------
 '   Primary Classes
 '   ------------------------------
 
-'
 '   Project
 '
 class Project {
@@ -92,9 +79,6 @@ class Project {
   Media:                [String]
 
   --
-  ' [ECJ2022.08.15]: should these be required?
-  ' [mah2022.08.26]: Yes, as long as we know there will always be at least one instance of each. Done (on
-  '                 that assumption).
   *Collections:          [Collection]
   *Experiments:          [Experiment]
   *Channels:             [Channel]
@@ -202,7 +186,6 @@ class Channel {
 '   Note that this currently corresponds to a BossDB channel. May not be best for light microscopy. 
 '   At present, remains a BossDB channel for initial discussion. Light Microscopy channel is-a channel (in BossDB sense).
 '   Channels in other (non-LightMicroscopy) projects may represent other types of data.
-'   [mah2022.10.17] That suggests we may need a set of imaging-modality-specific channel classes (e.g., LightMicroscopyChannel, etc). Do we?
   *ID:               String
   *Name:             String
   *Description:      String
@@ -263,8 +246,6 @@ BrainLocation::DataLocation *-- DataLocation
 '   ImageOrientation adds the axis and obliqueness attributes used in the 3D-MMS
 '   Image Category to describe the 3D orientation of the image.
 '
-'   TODO: Should not all these attributes be mandatory? Without them, what is the orientation?
-'
 class ImageOrientation << new >> {
     *xAxis: Enum (LeftToRight, RightToLeft,\n AnteriorToPosterior, PosteriorToAnterior,\n InferiorToSuperior, SuperiorToInferior, \n Oblique)
     *ObliqueXDim1: Enum (Left,Right)
@@ -290,12 +271,9 @@ class ImageExtent <<new>> {
 '
 '   Landmark
 '   Landmark provides a named (x,y,z) coordinate tuple that designates
-'   a point of interest within an Image. The coordinates are specified
-'   in image pixels from origin. Not confident that this interpretation 
-'   is correct. [mah2022.06.07]
+'   a point of interest within an image. The coordinates are specified.
+'   in image pixels from origin. 
 '
-'   TODO: Is specification in pixels correct?
-'   TODO: Are not all the attributes of this class mandatory? None were...
 '
 class Landmark << new >> {
     *LandmarkName: String
@@ -320,7 +298,6 @@ DataLocation::Resolution *-- ImageResolution
 
 '
 '   Publication
-'   TODO: Review "mandatoriness" of each attribute...
 class Publication {
     *Name:               [String]
     *URI:                [String]
@@ -365,7 +342,6 @@ class Contributor {
   NameType: Enum (Organizational, Personal)
   NameIdentifier: Enum (GRID, ISNI, ORCID, ROR, RRID)
   NameIdentifierScheme: Enum (GRDI, ISNI, ORCID, ROR, RRID, Other)
-  ' Why does a Contributor need a POC (Contributor::POCName, Contributor::POCEmail)? [mah2022.06.07][mah2022.08.29]
   POCName: String                           
   POCEmail: String
   Affiliation: String
@@ -405,17 +381,6 @@ class DOI {
     *URI: String
 }
 
-'
-'   Species [mah2022.06.07]
-'       TODO: What about ModelOrganism? Butterflies? Miniature insects? Spiders? Lots of 
-'             invertebrates.
-'       TODO: Can this realistically be an enumeration? But if we use a more flexible type
-'             (think "String"), won't we need a taxonomy and strong naming conventions to support
-'             searches and queries? Specific keywords?
-'   [ECJ2022.08.15]: Can we have a string with ‘other’? that allows for the taxonomy to apply?
-'   [mah2022.08.26]: We could, but would it still be useful? Other -> String would still need to be searchable,
-'                    so the comments regarding a strong naming convention still hold for the string associated
-'                    with the "Other" enumeree...
 enum Species {
   CElegans
   FruitFly
@@ -424,8 +389,6 @@ enum Species {
   Zebrafinch
   Human
   Other 
-        ' [mah2022.08.29]: "Other" of questionable value in the absence of taxonomy and strong naming convention,
-        '                  or possibly keywords of some standard kind...
 }
 
 '
@@ -448,7 +411,7 @@ enum ChannelType {
 }
 
 '
-'   LightMicroscopySpecific [mah2022.06.07]
+'   LightMicroscopySpecific 
 '   LightMicroscopySpecific captures characteristics of the microscope,
 '   the objective, the detector, the illuminator, and characteristics
 '   of the associated image(s) - illumination wavelength, detection 
@@ -456,24 +419,6 @@ enum ChannelType {
 '   the step increments and number of slices taken, and the channel 
 '   identifier.
 '
-'   TODO: Need to specify the type of the Channel identifier, which
-'         might be a string, an integer, or some other.
-'
-'   TODO: General observation: Specifying the type of an attribute as
-'         "Number" seems insufficient. Must know the representation in order 
-'         to parse. Is it an int8, int16, int32, int64, or a float or a double,
-'         or some other representation? 
-'         This needs to be addressed throughout...
-'
-'   TODO: Image Orientation needs to be referenced here, rather than
-'         in Experiment, since it is indeed a 3D-MMS property that is
-'         Light Microscopy specific. And we need to add the xAxis, yAxis
-'         and zAxis attributes, as well.
-'
-'   TODO: These attributes are specific to light microscopy. But are they 
-'         perhaps applicable to EM? Or to XRM?
-'
-'   TODO: "Mandatoriness" of each attribute
 
 '
 class LightMicroscopySpecific <<new>> {
@@ -545,10 +490,9 @@ enum ImagingModalityGeneral {
 
 '
 '   ImagingModalitySpecific
-'       TODO: Much the same question as with Species: Can this realistically be an enumeration?
 '             This enumeration is apt to be continually expanding. If not an enumeration, we'll
 '             need to specify a strong naming convention, so that query and search remain 
-'             efficient (and accurate). [mah2022.06.07]
+'             efficient (and accurate). 
 enum ImagingModalitySpecific {
   ATUM_SEM
   SB_SEM
@@ -612,3 +556,5 @@ enum VoxelUnit {
 }
 
 @enduml
+
+
