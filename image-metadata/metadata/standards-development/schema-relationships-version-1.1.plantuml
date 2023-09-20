@@ -1,4 +1,6 @@
 @startuml
+title Schema Relationships Version 1.1
+
 class DataCite {
 DataCite provides DOIs if required metadata 
 fields and a URL are provided
