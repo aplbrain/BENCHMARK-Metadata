@@ -10,7 +10,33 @@ A class can have multiple entities or corresponding data types, each representin
 
 <img width="1116" alt="Screen Shot 2023-06-01 at 10 59 44 AM" src="https://github.com/aplbrain/BENCHMARK-Metadata/assets/66258538/77f28ae5-c305-4469-81fb-34fea28dcd20">
 
+<<<<<<< HEAD
 Neuroscience data can be diverse and complex, requiring flexible approaches to accommodate different designs and analysis. This growing set of definitons seeks to allow users to explicitly define values while maintaing fluidity for collaboration. 
+=======
+| Field Name       | Definition  | Allowed Values |
+| ---------------- | ----------- | -------------- |
+| contributorName  |  Person (last name, first name) or organization (e.g., research group, department, institution) contributing to or responsible for the project, but does not include funders of the project. If a contributor has more than one contributorType, use a separate line for each.  | String |
+| Creator | Main researchers involved in producing the data. There must be at least one creator. | String |
+| contributorType | Categorization of the role of the contributor. Recommended: ProjectLeader (for principal investigator), ResearchGroup (for lab, department, or division). | String | 
+| nameType | Type of contributorName | String |
+---
+---
+<br/><br/> 
+
+# **Data Type**
+| Field Name       | Definition  | Allowed Values |
+| ---------------- | ----------- | -------------- |
+| objectID | ... | 0 $\leq$ ObjectID $\leq$ nE|
+| smallInt | Indicates a value of 1 or 2 | 1 or 2 | 
+| Integer | Values with long integer will be allowed to have up to 6 digits | 0 $\leq$ int $\leq$ 6 |
+| longNumber | Values with long integer will be allowed to have up to 6 digits | 0 <= nLong 11  |
+| Float | ... | 0 $\leq$ float $\leq$ -nE |
+| String | Add Definition Here | 0 $\leq$ str $\leq$ 9 | 
+---
+---
+
+<br/><br/> 
+>>>>>>> 91f8e8bd6b85e87e9b0b19b047a7652be74ef5d1
 
 
 # **Data Types**
