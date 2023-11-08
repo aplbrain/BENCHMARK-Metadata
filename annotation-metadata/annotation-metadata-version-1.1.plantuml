@@ -1,0 +1,410 @@
+@startuml
+title Standardization Effort Version 1.1
+/'
+The axon is connected to the Presynaptic 
+sending a chemical to be released into the 
+Postsynaptic.
+'/
+Cell --> Soma
+Soma --> Spine
+Soma --> Axon
+Soma --> Dendrite
+Soma --> Cilia 
+Dendrite --> Shaft
+Dendrite --> Spine
+Axon --> Axon_Initial_Segment
+Axon --> Bouton
+Gap_Junctions --> Axon
+Myelin --> Axon
+Synapse --> Axon
+Synapse --> Dendrite
+Synapse --> Axon_Initial_Segment
+Synapse --> Bouton
+Synapse --> Spine
+Synapse --> Shaft
+Synapse --> Soma 
+Spine_Apparatus --> Spine
+Organelles --> Gap_Junctions
+Organelles --> Nucleus
+Organelles --> Mitochondria
+Organelles --> SynapticVesicle
+Organelles --> Myelin
+Organelles --> Cleft
+Organelles --> Spine_Apparatus
+Nucleus --> Soma
+Cleft --> Synapse 
+Mitochondria --> All_Cell_Compartments
+SynapticVesicle --> Synapse
+Synapse --> Chemical
+Synapse --> Electrical
+Dendrite -->location_DendriteProperties
+Dendrite --> OptionalDendriteProperties
+Mitochondria -->OptionalMitochondriaProperties
+
+class Annotation_Provenance{
+	*Annotator
+	*Score
+	*Co-Registration
+	*Versioning
+}
+class Annotator{
+	contributor_method [enum]
+	novice_annotator [boolean]
+	expert_annotator [boolean]
+	novice_proofreader [boolean]
+	expert_proofreader [boolean]
+    contributor [str]
+	other [str]
+
+}
+class Score{
+    annotation_reviewed [int]
+	review_time_hours [int]
+	condfidence_value [int]
+	other [int]
+}
+
+class CoRegistration{
+	object_id [str]
+	other [str]
+}
+class Versioning{
+	version_checkpoint_value [int]
+	version_checkpoint_updates [str]
+	other [str]
+}
+
+Annotation_Provenance --> Annotator
+Annotator -->Organelles
+Annotation_Provenance --> Score
+Score -->Organelles
+Annotation_Provenance --> CoRegistration
+CoRegistration -->Organelles
+Annotation_Provenance --> Versioning
+Versioning -->Organelles
+
+
+Cell --> CellTypes
+CellTypes -->NeuronType
+CellTypes --> GliaType
+Cell -->RegionsofInterest
+class Cell{
+	*CellTypes [boolean]
+    *GliaType [enum]
+	*NeuronType [enum]
+    *OtherGliaType [str]
+	*OtherNeuronType [str]
+	*RegionsofInterest [enum]
+    *OtherRegionsofInterest [str]
+	*OptionalCellProperties [enum]
+}
+interface CellTypes{
+	neuron 
+	glia
+}
+enum NeuronType{
+	sensory_neurons
+	motor_neurons
+	interneurons
+}
+enum GliaType{
+	astrocytes
+	microglia 
+	oligodendrocyte 
+}	
+struct OtherGliaTypes{
+    other
+    }
+struct OtherNeuronType{
+    other
+    }
+GliaType --> OtherGliaTypes
+NeuronType -->OtherNeuronType
+
+enum RegionsofInterest{
+	layer
+	brain_regions
+	cylinder
+}
+struct OtherRegionsofInterest{
+    other
+    }
+RegionsofInterest --> OtherRegionsofInterest
+
+enum OptionalCellProperties{
+		multipolar 
+		bipolar
+		unipolar
+		anaxonic
+		blood_vessel_type
+		interneuron-type
+        pyramidal
+		c-shaped
+        spiny-stellate
+        excitatory/spiny-with-atypical-tree
+        sparsely-spiny
+        lots-of-spines
+        possible-interneuron
+        web-like-interneuron
+        lot-of-axon
+        EIRatio
+		precursor
+}
+
+class Bouton{
+}
+
+class Mitochondria{
+    *OptionalMitochondriaProperties [enum]
+    *OtherOptionalMitochondriaProperties [str]
+}
+
+enum OptionalMitochondriaProperties{
+    lipids 
+    proteins
+}
+
+struct OtherOptionalMitochondriaProperties{
+    other
+    
+}
+Mitochondria --> OtherOptionalMitochondriaProperties
+enum DendriteProperties{
+    apical_dendrite
+    basal_dendrite 
+    base_neuron_id
+    }
+
+enum SynapseSite{
+type
+class_label
+neuron_id
+}
+
+struct OtherSynapseSite{
+    other
+    
+}
+class Dendrite{
+        *DendriteProperties [enum]
+        *OptionalDendriteProperties [enum]
+        *OtherOptionalDendriteProperties [str]
+        *SynapseSite [enum]
+        *StringSynapseSite [str]
+        *OtherSynapseSite [str]
+        *location_DendriteProperties [int]
+}
+Dendrite -->OtherSynapseSite
+
+
+enum OptionalDendriteProperties{
+    number_dendriteskeleton_nodes
+    number_dendriticspineskeleton_nodes
+    number_ciliumskeleton_nodes
+    dendritic_shaft
+    dendritic_spine
+}
+
+struct OtherOptionalDendriteProperties{
+    other
+}    
+Dendrite --> OtherOptionalDendriteProperties
+
+interface location_DendriteProperties{
+    *location: 
+        x 
+        y 
+        z 
+   
+    *bounding_box: 
+            x 
+            y 
+            z 
+       
+      *size: 
+            x 
+            y 
+            z 
+} 
+
+class Spine_Apparatus{
+}
+
+class Spine{
+    *OptionalSpineProperties [enum]
+    *StringOptionalSpineProperties [str]
+
+}
+Spine -->OptionalSpineProperties
+enum OptionalSpineProperties{
+    number_of_spines
+}
+struct StringOptionalSpineProperties{
+    spine_protrusions
+    other
+    }
+Spine -->StringOptionalSpineProperties
+
+
+class Soma{
+*Optional Soma Properties [int]
+*StringOptionalSomaProperties [str]
+}
+Soma -->OptionalSomaProperties
+
+struct StringOptionalSomaProperties{
+    other
+    }
+Soma -->StringOptionalSomaProperties
+interface OptionalSomaProperties{
+    cell body
+    }
+
+class Synapse{
+    *Chemical [enum]
+    *StringChemical [str]
+    *Electrical [enum]
+    *StringElectrical [str]
+    *OptionalSynapseProperties [enum]
+    *otherOptionalSynapseProperties [str]
+    }
+
+enum Chemical{
+		presynaptic
+		postsynaptic
+    }
+struct StringChemical{ 
+    other
+        }
+enum Electrical{
+		gap_junction_id
+        }
+struct StringElectrical{
+    gap_junction_location 
+    other
+        }
+Synapse --> StringChemical
+Synapse --> StringElectrical
+Synapse --> OptionalSynapseProperties
+
+enum OptionalSynapseProperties{
+	number_output_synapses 
+	number_input_synapses 
+	number_excitatory_synapses
+	number_inhibitory_synapses
+	number_outgoing_synapses
+	number_incoming_synapses
+	number_incomingexcitatory_synapses
+	number_incominginhibitory_synapses
+}
+struct otherOptionalSynapseProperties{
+    other
+}
+Synapse --> otherOptionalSynapseProperties
+Cell --> OptionalCellProperties
+Dendrite -->DendriteProperties
+Dendrite -->SynapseSite
+
+class Organelles{
+	*Ribosomes [boolean]
+    *Endoplasmic_Reticulum [boolean]
+	*Mitochondria [boolean]
+	*Golgi_Apparatus [boolean]
+	*Spine_Apparatus [boolean]
+    *SynapticVesicle [boolean]
+	*Nucleus [boolean]
+	*Gap_Junctions [boolean]
+	*Myelin [boolean]
+	*Plasma Membrane [boolean]
+}
+
+class Nucleus{
+*NucleusProperties [str]
+*otherNucleusProperties [str]
+}
+struct NucleusProperties{
+nucleolus 
+}
+struct otherNucleusProperties{
+    other
+    }
+
+Nucleus --> NucleusProperties
+Nucleus --> otherNucleusProperties
+
+class Axon{
+    *Axon Properties [enum]
+    *OptionalAxonProperties [enum]
+    *OptionalAxonPropertieslocation [int]
+    *StringAxonProperties [str]
+    *StringOptionalAxonProperties [str]
+    }
+
+enum AxonProperties{
+	axon_terminal 
+	myelinated_axon 
+}
+Axon --> AxonProperties
+struct StringAxonProperties{
+    base_neuron_id
+	other
+    }
+Axon -->StringAxonProperties
+enum SynapseSite{
+		pre_synaptic_site
+		neuron_id
+}
+struct StringSynapseSite{
+    type 
+    class_label 
+    other 
+}
+Dendrite --> StringSynapseSite
+
+Axon --> OptionalAxonProperties
+Axon --> OptionalAxonPropertieslocation
+
+enum OptionalAxonProperties{
+	number_of_axons
+	number_axonskeleton_nodes
+	number_ciliumskeleton_nodes
+	number_axoninitialsegmentskeleton_nodes
+	number_myelinatedaxonskeleton_nodes
+    }
+
+
+struct StringOptionalAxonProperties{
+    other
+}
+Axon --> StringOptionalAxonProperties
+
+interface OptionalAxonPropertieslocation{
+        x 
+        y 
+        z 
+   
+    *bounding_box: 
+            x 
+            y 
+            z 
+       
+       *size: 
+            x 
+            y 
+            z
+} 
+class SynapticVesicle{
+
+} 
+
+class Axon_Initial_Segment{
+	*Optional_Axon_Initial_Segment_Properties
+
+}
+struct Optional_Axon_Initial_Segment_Properties{
+    myelin 
+}
+Axon_Initial_Segment-->Optional_Axon_Initial_Segment_Properties
+
+
+@enduml
