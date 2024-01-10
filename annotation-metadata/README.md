@@ -4,9 +4,9 @@
 The annotation-metadata directory contains the version-controlled development of annotation metadata schemas. Each schema version is designed to improve and standardize the neuroanatomical annotation process.
 
 # Contents
-* PlantUML Diagrams: These files define the structure of the annotation metadata schema across different versions (1.0, 1.1, and 1.2). 
-* PNG Diagrams: Visual representations of the UML diagrams in PNG format for easy viewing.
-* Connectome Annotation Versioning Engine (CAVE) Implementation: The 1.2 version of the schema has been adapted to work with the CAVE framework.
+* PlantUML Diagrams: These files define the structure of the annotation metadata schema across different versions (1.0, 1.1, and 1.2). These versions are evolving and will change as a result of community input. 
+* PNG Diagrams: Visual representations of the UML diagrams in PNG format for viewing.
+* Connectome Annotation Versioning Engine (CAVE) Implementation: The 1.2 version of the schema has been adapted to work with the CAVE framework, in effort to adapt community created platforms. 
 * Neuroanatomy Schema: Outlined background for the corresponding neuroanatomy structure. 
 * Required Field Names: A markdown file listing the required fields in the metadata schema.
 
