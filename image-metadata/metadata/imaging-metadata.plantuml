@@ -1,4 +1,7 @@
 @startuml Metadata
+'   BENCHMARK Connectomics Metadata Standards v1.1
+'   BENCHMARK Team, https://github.com/aplbrain/benchmark-metadata
+title Imaging Metadata Version 1.1
 
 '   -----------------------------
 '   Layout directives
@@ -6,7 +9,7 @@
 
 '   Grouping
 together {
-    'class Project
+    class Project
     class Collection
     class Experiment
     class Channel
@@ -19,19 +22,25 @@ together {
     class ImageResolution
 }
 
+'   Formatting for readability
+'   Splitting into four pages
 page 2x2
 skinparam pageMargin 10
 skinparam pageBorderColor black
 skinparam pageBorderColor gray 
-  
+
+
+
 '   ------------------------------
 '   Primary Classes
 '   ------------------------------
 
+'
 '   Project
 '
 class Project {
   *ID:               String
+  *Name:             String 
   *Title:            String
   *ShortTitle:       String
   *Keywords:         [String]
@@ -39,45 +48,34 @@ class Project {
   *Year:             Date
   *Public:           Boolean
   *Species:          [Species]
-  Publications:     [Publication]
-  Links:            [Link]
- *License:          [License]
+  Links:             [Link]
+  *UniqueIdentifier: Link
+  *License:          [License]
+  *Creator:          Contributor
+  *PointOfContact:   [Contributor]
   *Contributor:      [Contributor]
   Acknowledgements: String
   Funding:          [Funding]
   *DateCreated:      Date
   DateModified:     Date
-  DOI:              DOI
-  .. Additions ..
-  
-  SocialMedia: String
-  Subject: String
-  SubjectScheme: String
+  Version:      String
+  ' Communication and dissemination
   --
+  SocialMedia: String
+  Publications:     [Publication]
+  Image:          [Link]
+  Media:                [String]
+  ' Experimental information
+  Taxonomy:         [Taxonomy]
   *ImagingModalities:        [ImagingModalityGeneral]
   ImagingModalitySpecific:  [ImagingModalitySpecific]
-  DataTypes:                [DataType]
-
-    ImageLocations:           [BrainLocation]
-  .. Additions ..
-
-  *GeneralModality:          GeneralModality
-
+  *GeneralModality:          [GeneralModality]
   GeneralModalityOther:     String
-
-  *Technique:                [Technique]
-  *TechniqueOther:           String
-  Methods:                  String
-
-  --
-  
-  *ImageBanner:          String
-  *ImageTile:            String
-
-  ImageHero:            String
-  ImageHeroPosition:    String
-  Media:                [String]
-
+  DataTypes:                [DataType]
+  ImageLocations:           [BrainLocation]
+  Methods:                  [String]
+  TechnicalInfo:            String
+  ' Data
   --
   *Collections:          [Collection]
   *Experiments:          [Experiment]
@@ -88,6 +86,8 @@ Project::ImageLocations         *-- BrainLocation
 Project::Publications           *-- Publication
 Project::Species                *-- Species
 Project::Links                  *-- Link
+Project::Creator                *-- Contributor
+Project::PointOfContact         *-- Contributor
 Project::Contributor            *-- Contributor
 Project::License                *-- License
 Project::Funding                *-- Funding
@@ -97,9 +97,8 @@ Project::DataTypes              *-- DataType
 Project::Collections            *-- Collection
 Project::Experiments            *-- Experiment
 Project::Channels               *-- Channel
-Project::DOI                    *-- DOI
 Project::GeneralModality        *-- GeneralModality
-Project::Technique              *-- Technique
+Project::Taxonomy               *-- Taxonomy
 
 '
 '   Collection
@@ -109,33 +108,29 @@ class Collection {
   *Name:         String
   *Description:  String
   *Public:       Boolean
-  *Creator:      [User]
+  *Creator:      Contributor
   *Contributors: [Contributor]
   *DateCreated:  Date
-  DateModified:  Date
+  DateModified: Date
+  *Version:      String
   *License:      [License]
   Acknowledgements: String
-  DOI:           DOI
-  Version:       String
-
-  .. Additions ..
+  *UniqueIdentifier: Link
   Citations:    [String]
-  AccessControl: Boolean
-  --
   Species:      [Species]
-  .. Additions ..
-  
-    TaxonomyTerm: String
+  ' TaxonomyTerm
+  '     From NCBI Thesaurus. Prefer NCBI taxonomy before others.
+  Taxonomy: [Taxonomy]
   --
-  Experiments:  [Experiment]
+  *Experiments:  [Experiment]
 }
 
-Collection::Creator         *-- User
+Collection::Creator    *-- Contributor
 Collection::Contributors    *-- Contributor
 Collection::License         *-- License
-Collection::DOI             *-- DOI
 Collection::Species         *-- Species
 Collection::Experiments     *-- Experiment
+Collection::Taxonomy        *-- Taxonomy
 
 '
 '   Experiment
@@ -145,33 +140,27 @@ class Experiment {
   *Name:             String
   *Description:      String
   *Public:           Boolean
-  *Creator:          [User]
+  *Creator:          Contributor
   *Contributors:     [Contributor]
   *DateCreated:      Date
-  DateModified:      Date
+  DateModified:     Date
+  *Version:          String
   *License:          License
   --
-
-  *Species:         Species
-
-  *ImageLocation:   BrainLocation
-  *Protocol:        Link
-  .. Additions ..
-  
-  *NCBITaxonomy:    String
+  Species:          Species
+  ImageLocation:    BrainLocation
+  Protocol:         Link
+  Taxonomy:        Taxonomy
   Age:              String
   AgeUnit:          Enum (Days, Months, Years)
   Sex:              Enum (Male, Female, Unknown)
-  *Genotype:        String
   --
-  *CoordinateFrame: CoordinateFrame
-  --
-  Channels:         [Channel]
-  --
-  Version:          String
+  *CoordinateFrame:  CoordinateFrame
+  *Channels:         [Channel]
+  
 }
 
-Experiment::Creator         *-- User
+Experiment::Creator    *-- Contributor
 Experiment::Contributors    *-- Contributor
 Experiment::License         *-- License
 Experiment::ImageLocation   *-- BrainLocation
@@ -183,49 +172,41 @@ Experiment::Channels        *-- Channel
 '   Channel
 '
 class Channel {
-'   Note that this currently corresponds to a BossDB channel. May not be best for light microscopy. 
-'   At present, remains a BossDB channel for initial discussion. Light Microscopy channel is-a channel (in BossDB sense).
-'   Channels in other (non-LightMicroscopy) projects may represent other types of data.
   *ID:               String
   *Name:             String
   *Description:      String
   *Public:           Boolean
-  *Creator:          [User]
+  *Creator:          Contributor
   *Contributors:     [Contributor]
   *DateCreated:      Date
-  DateModified:      Date
+  DateModified:     Date
+  *Version:          String         
   *License:          License
-  .. Additions ..
   --
-  *ImagingModality:   ImagingModalityGeneral
+  *ImagingModality:  ImagingModalityGeneral
   ImagingModalitySpecific: ImagingModalitySpecific
-  *ImageResolution:   ImageResolution
-  *ChannelType:       ChannelType
-  *DataType:          DataType
+  *ImageResolution:  ImageResolution
+  *ChannelType:      ChannelType
+  *DataType:         DataType
   VisualizationColor: String
-  ImageExtent:      ImageExtent
-
-  .. Additions ..
+  ImageExtent:      Float
+  ' LightMicroscopyAttributes
+  '     Light Microscopy specific attributes derived from https://doi.org/10.1038/s41597-022-01562-5 (microscope, objective, detector, illuminator, etc)
   LightMicroscopyAttributes: LightMicroscopySpecific
-  EMAttributes:       EMSpecific
-  XRMAttributes:      XRMSpecific
-
-  --
-  *Version:          String
+  ' EMMicroscopyAttributes
+  ElectronMicroscopyAttributes: ElectronMicroscopySpecific  
 }
 
-Channel::Creator                 *-- User
-Channel::Contributors            *-- Contributor
-Channel::License                 *-- License
-Channel::ImagingModalityGeneral  *-- ImagingModalityGeneral
+Channel::Creator                *-- Contributor
+Channel::Contributors           *-- Contributor
+Channel::License                *-- License
+Channel::ImagingModalityGeneral *-- ImagingModalityGeneral
 Channel::ImagingModalitySpecific *-- ImagingModalitySpecific
-Channel::ImageResolution         *-- ImageResolution
-Channel::ChannelType             *-- ChannelType
-Channel::DataType                *-- DataType
+Channel::ImageResolution        *-- ImageResolution
+Channel::ChannelType            *-- ChannelType
+Channel::DataType               *-- DataType
 Channel::LightMicroscopyAttributes *-- LightMicroscopySpecific
-Channel::EMAttributes            *-- EMSpecific
-Channel::XRMAttributes           *-- XRMSpecific
-Channel::ImageExtent             *-- ImageExtent
+Channel::ElectronMicroscopyAttributes *-- ElectronMicroscopySpecific  
 
 '   ------------------------------
 '   Supporting classes
@@ -233,20 +214,21 @@ Channel::ImageExtent             *-- ImageExtent
 
 '
 '   BrainLocation
+'   Orientation can contain a rotation matrix, euler angles, or quaternion
+'
 class BrainLocation {
     *Name:           String
     *Location:       DataLocation
-    Orientation:     ImageOrientation
+    BrainRegionName: [String]
+    Orientation:     [Float]
+    OrientationType: String
 }
-
 BrainLocation::DataLocation *-- DataLocation
 
 '
-'   ImageOrientation
-'   ImageOrientation adds the axis and obliqueness attributes used in the 3D-MMS
-'   Image Category to describe the 3D orientation of the image.
+'   ImageOrientation. Preserved for light microscopy specific fields
 '
-class ImageOrientation << new >> {
+class ImageOrientation {
     *xAxis: Enum (LeftToRight, RightToLeft,\n AnteriorToPosterior, PosteriorToAnterior,\n InferiorToSuperior, SuperiorToInferior, \n Oblique)
     *ObliqueXDim1: Enum (Left,Right)
     *ObliqueXDim2: Enum (Anterior, Posterior)
@@ -263,49 +245,39 @@ class ImageOrientation << new >> {
     *ObliqueZDim3: Enum (Inferior, Superior)
 }
 
-class ImageExtent <<new>> {
-*xExtent: Number
-*yExtent: Number
-*zExtent: Number
-}
 '
 '   Landmark
-'   Landmark provides a named (x,y,z) coordinate tuple that designates
-'   a point of interest within an image. The coordinates are specified.
-'   in image pixels from origin. 
 '
-'
-class Landmark << new >> {
+class Landmark {
     *LandmarkName: String
-    *LandmarkX: Number
-    *LandmarkY: Number
-    *LandmarkZ: Number
+    *LandmarkX: Float
+    *LandmarkY: Float
+    *LandmarkZ: Float
 }
 
 '
 '   DataLocation
 '
 class DataLocation {
-    URI: String!
-    *Xs: [Number]
-    *Ys: [Number]
-    *Zs: [Number]
-    Ts: [Number]
+    *Xs: [Float]
+    *Ys: [Float]
+    *Zs: [Float]
+    *Ts: [Float]
     *Resolution: ImageResolution
+    URI: String
 }
 
 DataLocation::Resolution *-- ImageResolution
 
 '
 '   Publication
+'
 class Publication {
     *Name:               [String]
     *URI:                [String]
     *Authors:            [String]
-    .. Additions ..
     RelatedIdentifier:  String
     RelatedIdentifierType: Enum (arXiv, DOI, ISBN, PMID)
-    PMCID:              String
     RelationType:       Enum (IsCitedBy, IsDocumentedBy)
     Citation:           String
 }
@@ -322,9 +294,8 @@ class Link {
 '   Funding
 '
 class Funding {
-    *FundingEntity: String
-    *AwardIdentifier: String
-    .. Additions ..
+    *FundingEntity: String                   
+    *AwardIdentifier: String                 
     FundingReferenceIentifier: String
     FundingReferenceIdentifierType: Enum (GRDI, \n ISNI, ORCID, ROR, RRID, Other)
     AwardTitle: String
@@ -334,24 +305,136 @@ class Funding {
 '   Contributor
 '
 class Contributor {
-  *Name: [String]
-  Email: [String]
-  .. Additions ..
+
+  *Name: [String] 
+  Email: [String] 
   Creator: Boolean;
   ContributorType: Enum (ContactPerson, DataCollector, DataCurator, ProjectLeader,\n ProjectManager, ProjectMember, RelatedPerson, Researcher, ResearchGroup, Other)
   NameType: Enum (Organizational, Personal)
-  NameIdentifier: Enum (GRID, ISNI, ORCID, ROR, RRID)
+  NameIdentifier: String
   NameIdentifierScheme: Enum (GRDI, ISNI, ORCID, ROR, RRID, Other)
-  POCName: String                           
-  POCEmail: String
   Affiliation: String
-  AffiliationIdentifier: Enum (GRID, ISNI, ORCID, ROR, RRID)
+  AffiliationIdentifier: String
   AffiliationIdentifierScheme: Enum (GRDI, ISNI, ORCID, ROR, RRID, Other)
 }
 
 '
-'   Technique
-enum Technique {
+'   Taxonomy
+'
+class Taxonomy {
+  TaxonomyID:  String
+  CurrentName:  String
+  GenbankCommon name:  String
+  NCBIBLASTName: String
+  Rank: String
+  GeneticCode: String
+  MitochondrialGeneticCode: String
+  CommonName: [String]
+}
+
+'
+'   License
+'
+class License {
+    *Rights:                String                                 
+    *RightsURI:             String          
+}
+
+'
+'   Species
+'
+enum Species {
+  CElegans
+  FruitFly
+  Mouse
+  Zebrafish
+  Zebrafinch
+  Human
+  Other
+}
+
+'
+'   DataType
+'
+enum DataType {
+  Imagery
+  Segmentation
+  Skeletons
+  Connectome
+  Other
+}
+
+'
+'   ChannelType
+'
+enum ChannelType {
+  Image
+  Segmentation
+  Annotation
+}
+
+
+'
+'   LightMicroscopySpecific
+'
+class LightMicroscopySpecific {
+    MicroscopeType: String
+    MicroscopeManufacturerAndModel: String
+    ObjectiveManufacturerAndModel: String
+    ObjectiveMagnification: Float
+    DetectorType: String
+    DetectorManufacturerAndModel: String
+    IlluminationWavelength: Float
+    DetectionWavelength: Float
+    SampleTemperature: Float
+    XSize: Float
+    YSize: Float
+    ZSize: Float
+    Gbyte: Float
+    StepSizeX: Float
+    StepSizeY: Float
+    StepSizeZ: Float
+    StepSizeT: Float
+    Slices: Float                    
+    t: Float
+    ImageOrientation: ImageOrientation
+    Landmark: Landmark
+}
+
+
+LightMicroscopySpecific::ImageOrientation *-- ImageOrientation
+LightMicroscopySpecific::Landmark *-- Landmark
+
+'
+'   LightMicroscopySpecific
+'
+class ElectronMicroscopySpecific {
+    MicroscopeType: String
+    MicroscopeManufacturerAndModel: String
+    ObjectiveManufacturerAndModel: String
+    SamplePreparation: String
+    ImagingModality: ImagingModalitySpecific
+    XSize: Float
+    YSize: Float
+    ZSize: Float
+    Isotropic: Boolean
+    StepSizeX: Float
+    StepSizeY: Float
+    StepSizeZ: Float
+    Slices: Float  
+    Alignment: String                 
+}
+
+'
+'   GeneralModality
+'
+enum GeneralModality {
+    Neuroimaging
+    CellMorphology
+    Connectivity
+    PopulationImaging
+    Spatial
+    Transcriptomics
     DARTFISH
     fMOST
     MERFISH
@@ -365,134 +448,22 @@ enum Technique {
 }
 
 '
-'   License
-'
-class License {
-    *Rights:                String                            
-    *RightsURI:             String 
-    .. Additions ..
-    *RightsIdentifier:      String
-}
-
-'
-'   DOI
-'
-class DOI {
-    *URI: String
-}
-
-enum Species {
-  CElegans
-  FruitFly
-  Mouse
-  Zebrafish
-  Zebrafinch
-  Human
-  Other 
-}
-
-'
-'   DataType
-'
-enum DataType {
-  Imagery
-  Segmentation
-  Skeletons
-  Connectome
-}
-
-'
-'   ChannelType
-'
-enum ChannelType {
-  Image
-  Segmentation
-  Annotation
-}
-
-'
-'   LightMicroscopySpecific 
-'   LightMicroscopySpecific captures characteristics of the microscope,
-'   the objective, the detector, the illuminator, and characteristics
-'   of the associated image(s) - illumination wavelength, detection 
-'   wavelength, temperature, image size, image filename, image filesize,
-'   the step increments and number of slices taken, and the channel 
-'   identifier.
-'
-
-'
-class LightMicroscopySpecific <<new>> {
-    MicroscopeType: String
-    MicroscopeManufacturerAndModel: String
-    ObjectiveManufacturerAndModel: String
-    ObjectiveImmersion: ???                 ' TODO
-    ObjectiveNA: ???                        ' TODO
-    ObjectiveMagnification: Number
-    DetectorType: String
-    DetectorManufacturerAndModel: String
-    IlluminationType: Enum???               ' TODO
-    IlluminationWavelength: Number
-    DetectionWavelength: Number
-    SampleTemperature: Number
-    XSize: Number
-    YSize: Number
-    ZSize: Number
-    Gbyte: Number
-    File: String
-    DimensionOrder: ???                     ' TODO
-    StepSizeX: Number
-    StepSizeY: Number
-    StepSizeZ: Number
-    StepSizeT: Number
-    Channel: ???                            ' TODO
-    Slices: Number?                         ' TODO
-    t: Number
-    ImageOrientation: ImageOrientation
-    Landmark: Landmark
-    Flourophore: String
-
-}
-
-class EMSpecific <<new>> {
-    ' Populate following discussions with Erik and Pat.
-}
-
-class XRMSpecific <<new>> {
-    ' Populate following discussion with Erik and Pat
-}
-
-LightMicroscopySpecific::ImageOrientation *-- ImageOrientation
-LightMicroscopySpecific::Landmark *-- Landmark
-
-'
-'   GeneralModality
-'
-enum GeneralModality {
-    CellMorphology
-    Connectivity
-    PopulationImaging
-    Spatial
-    Transcriptomics
-    Other
-}
-
-'
 '   ImagingModalityGeneral
 '
 enum ImagingModalityGeneral {
+  EM
   SEM
   TEM
-  XRay
+  Xray
   MRI
   LightMicroscopy
   None
+  Other
 }
 
 '
 '   ImagingModalitySpecific
-'             This enumeration is apt to be continually expanding. If not an enumeration, we'll
-'             need to specify a strong naming convention, so that query and search remain 
-'             efficient (and accurate). 
+
 enum ImagingModalitySpecific {
   ATUM_SEM
   SB_SEM
@@ -504,31 +475,26 @@ enum ImagingModalitySpecific {
   CLARITY
   MRI
   MRI_DTI
-  None
-  .. Additional ..
   FIB_SEM
   SBF_SEM
   ExperimentGT_TEM
   sAT 
   mAT 
   cryo-FIB_SEM
-}
-
-'
-'   User
-'
-class User {
-  *Name: String
-  *Email: String
+  REM
+  STM
+  AET
+  AFM
+  Other
 }
 
 '
 '   CoordinateFrame
 '
 class CoordinateFrame {
-  *Xs: [Number]
-  *Ys: [Number]
-  *Zs: [Number]
+  *Xs: [Float]
+  *Ys: [Float]
+  *Zs: [Float]
   --
   *VoxelSize: ImageResolution
 }
@@ -539,7 +505,7 @@ CoordinateFrame::ImageResolution *-- ImageResolution
 '   ImageResolution
 '
 class ImageResolution {
-  *VoxelSize: [Number]
+  *VoxelSize: [Float]
   *VoxelUnit: VoxelUnit
 }
 
@@ -556,5 +522,3 @@ enum VoxelUnit {
 }
 
 @enduml
-
-

@@ -1,4 +1,4 @@
-# Standards for Archive Image and Data Storage
+# v1.1 Standards for Archive Image and Data Storage
 
 The field of connectomics overlaps heavily with other neuroimaging domains but has particular aspects of data scale, proofreading workflows, and secondary data products which require custom approaches. We aim to leverage existing standards as much as possible, and aim to promote cross-archive and project compatibility. We recognize, however, that individual laboratories and software projects have significant investments in tools and formats and may need to maintain these approaches. However, adhering to the recommended standards on publication/export of the data products can greatly enhance interoperability and reuse in the community.
 
@@ -27,6 +27,10 @@ The field of connectomics overlaps heavily with other neuroimaging domains but h
 	* Sharding will be required
 	* Overlaps with Zarr team
 
+* [Cloud-Volume](https://github.com/seung-lab/cloud-volume)
+	* Interfaces with existing tools like Neuroglancer
+	* Supported by existing archives and projects
+
 * [Tensorstore](https://google.github.io/tensorstore/)
 	* Similar to sharding- smaller number of large files, provides a view of database with lots of small objects. Preserves random reads and writes. 
 	* For EM volumentric data- not a clear advantage over sharded zarr. But for other formats maybe advantageous
@@ -36,7 +40,7 @@ The field of connectomics overlaps heavily with other neuroimaging domains but h
 * Conversion 
 	* If a tool/archive uses an internal format, one or more of the above should be supported for 
 
-## Key Remaining Issues to Discuss
+## Key Remaining Issues for Future Versions
 * Provenance- how to have immutable logs, track deltas, and version releases
 * Label Mapping- Pychunkgraph or supervoxels, could these be aligned with zarr using a simple format for ID mappings
 * Compression techniques- what codecs are permisible for segmentations and raw data. Zarr v3 codecs support blosc, gzip

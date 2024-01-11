@@ -1,7 +1,5 @@
 ---
-title: Acronyms && Descriptions
-date: today
-author: Contributors
+title: Acronyms && Descriptions for BENCHMARK Standards v1.1
 ---
 
 # ***Acronyms***
@@ -35,7 +33,6 @@ author: Contributors
 | SS_TEM | Serial Section Transmission Electron Microscopy |
 | STM | Scanning Tunneling Microscope |
 | TEM | Transmission Electron Microscope |
-| Xray | X-Radiation |
 | XRM | Xray Microscopy |
 
 
@@ -44,7 +41,7 @@ author: Contributors
 
 | Abbreviation      | Description | 
 | ---------------- | ------------ | 
-| arXiv | archive |
+| arXiv | arXiv is a distribution service and open-access archive|
 | GRID | Global Research Identifier Database |
 | ISNI | International Standard Name Identifier |
 | ORCID | Open Researcher and Contributor ID |
