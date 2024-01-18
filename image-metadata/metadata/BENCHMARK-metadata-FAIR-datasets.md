@@ -1,7 +1,4 @@
----
-title: BENCHMARK Metadata for FAIR Datasets, v1.1
----
-
+# BENCHMARK Metadata for FAIR Datasets, v1.1
 This document outlines a set of key metadata that should be defined in the BENCHMARK v1.1 standards to ensure datasets which are FAIR (Findable, Accesible, Interoperable, and Resusable). These recommendations are closely based on recommendations established in the BICCN and BICAN programs for FAIR dataset release, as well as recommended metadata for Standards for 3D Microscopy ([standards](https://doi.org/10.1038/s41597-022-01562-5))
 
 # ***Checklist for FAIR Datasets using the BENCHMARK Standards***

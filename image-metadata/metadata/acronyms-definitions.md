@@ -1,6 +1,4 @@
----
-title: Acronyms && Descriptions for BENCHMARK Standards v1.1
----
+# Acronyms && Descriptions for BENCHMARK Standards v1.1
 
 # ***Acronyms***
 
