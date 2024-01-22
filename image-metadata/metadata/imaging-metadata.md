@@ -83,7 +83,7 @@ The electron microscopy specific class consists of XX fields which define metada
 Acronym Definitions
 -------------------
 
-![](Acronyms-version-1.1.md)
+[Acronym table](acronyms-definitions.md)
 
 Metadata Schema Overview Diagram
 --------------------------------
@@ -93,6 +93,6 @@ Metadata Schema Overview Diagram
 Metadata Schema Derivation (Schema Relationships Diagram)
 ---------------------------------------------------------
 
-![](standards-development/schema-relationships.svg)
+[Derivation from Previous Schema](standards-development/schema-relationships.png)
 
 

@@ -25,7 +25,16 @@ Existing BossDB data model
 }
 
 class NeMO {
-BdBag?
+}
+
+class DANDI {
+NWB
+}
+
+class BIDS {
+}
+
+class BICCN_Metadata{
 }
 
 class BIL {
@@ -33,14 +42,14 @@ Required metadata largely
 represented in Essential_3D_MMS; 
 Optional metadata in 3D_MMS.
 }
-
+ 
 class Proposed {
 }
 
-class New_EM {
+class Working_Group_EM {
 }
 
-class New_XRM {
+class Working_Group_XRM {
 }
 
 
@@ -48,11 +57,18 @@ class New_XRM {
 OME --> 3D_MMS: metadata\ndefinitions
 DataCite --> 3D_MMS: metadata\ndefinitions
 
+NeMO --> BICCN_Metadata
+DANDI --> BICCN_Metadata
+BIL --> BICCN_Metadata
+BossDB --> BICCN_Metadata
+
+BIDS --> Proposed
+BICCN_Metadata --> Proposed
 BossDB --> Proposed: required\nmetadata\ndefinitions
 Essential_3D_MMS --> Proposed: required\nmetadata\ndefinitions
 3D_MMS --> Proposed: optional\nmetadata\ndefinitions
-New_EM --> Proposed: EM\nmetadata\ndefinitions
-New_XRM --> Proposed: XRM\nmetadata\ndefinitions
+Working_Group_EM --> Proposed: EM\nmetadata\ndefinitions
+Working_Group_XRM --> Proposed: XRM\nmetadata\ndefinitions
 
 
 @enduml
