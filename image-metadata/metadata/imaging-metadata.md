@@ -13,11 +13,11 @@ Metadata Standard Development Approach
 ======================================
 The working group met to discuss key guiding principles of standards development in this field, including:
 * Building on existing file formats and standards efforts when possible
-* Promoting inter-operability across EM Connectomics archives/tools 
+* Promoting interoperability across EM Connectomics archives/tools 
 * Promoting accessibility and findability across modalities
 * Planning for scale and distributed cloud-based computing
 
-During working group meetings, subgroups were formed to discuss image and data file types, linking between datasets, potential multimodal experiments and cross-archive analysis. An emphasis was placed on preserving existing workflows, both within laboratories and existing software tools. Image formats and metadata standards were proposed to address issues during inter-operation (e.g. data ingest), data dissemination, and secondary data analysis. The working group recommended these standards be implemented in software tools for data archives and processing software to enable inter-operability. After each working group meeting, recommendations were aggregated by the core standards team. Draft documents are available at https://github.com/aplbrain/benchmark-metadata for continued community refinement. 
+During working group meetings, subgroups were formed to discuss image and data file types, linking between datasets, potential multimodal experiments and cross-archive analysis. An emphasis was placed on preserving existing workflows, both within laboratories and existing software tools. Image formats and metadata standards were proposed to address issues during interoperation (e.g. data ingest), data dissemination, and secondary data analysis. The working group recommended these standards be implemented in software tools for data archives and processing software to enable interoperability. After each working group meeting, recommendations were aggregated by the core standards team. Draft documents are available at https://github.com/aplbrain/benchmark-metadata for continued community refinement. 
 
 In addition to working group meetings, extensive review of several existing, related standards was conducted. This was intended to leverage existing standards, harmonize efforts across archives, and promote a pathway to sustainability, possibly as an extension to an existing standards effort. Continued refinement of these draft standards will focus on harmonization with other metadata specifications. The reviewed standards included:
 * Metadata services for the archives NEMO, DANDI, BossDB, Dvid, webKnossos and BIL
