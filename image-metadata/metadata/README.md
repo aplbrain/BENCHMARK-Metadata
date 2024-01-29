@@ -1,6 +1,6 @@
 # v1.1 Image and Experimental Metadata Standards for EM and XRM Connectomics Community
 In this folder, you will find
-* The v1.1 metadata description: [schema](imaging-metadata-version-1.1.plantuml), [diagram](imaging-metadata.png), [description](imaging-metadata.md)
+* The v1.1 metadata description: [schema](imaging-metadata.plantuml), [diagram](imaging-metadata.png), [description](imaging-metadata.md)
 * Reference material comparing the proposed draft to related standards efforts: [standards-development](standards-development)
 
 ## Extant schemas examined
