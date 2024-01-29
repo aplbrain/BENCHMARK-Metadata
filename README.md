@@ -1,7 +1,7 @@
 # BossDB-Metadata
 Preliminary draft metadata specification for Images, Experiments, and Annotations related to EM and XRM Connectomics experiments.
 
-In the folder image-metadata, you will see draft standards for image and experimental metadata for review. Standards will be evolving based on our working group meetings and will be developed with versioned releases.
+In the folder image-metadata, you will see v1.1 standards for image and experimental metadata for review. Standards will be evolving based on our working group meetings and will be developed with versioned releases.
 * [Images](image-metadata/images)
 * [Image and Experimental Metadata](image-metadata/metadata)
 * [Annotation Metadata](annotation-metadata)
