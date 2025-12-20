@@ -515,9 +515,9 @@ ImageResolution::VoxelUnit *-- VoxelUnit
 '   VoxelSize: voxel resolution for 3 dimensions
 '
 class VoxelSize {
-  X: Float
-  Y: Float
-  Z: Float
+  *X: Float
+  *Y: Float
+  *Z: Float
 }
 
 '
