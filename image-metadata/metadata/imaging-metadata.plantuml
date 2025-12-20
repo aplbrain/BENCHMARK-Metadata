@@ -505,14 +505,23 @@ CoordinateFrame::ImageResolution *-- ImageResolution
 '   ImageResolution
 '
 class ImageResolution {
-  *VoxelSize: [Float]
+  *VoxelSize: VoxelSize
   *VoxelUnit: VoxelUnit
 }
 
 ImageResolution::VoxelUnit *-- VoxelUnit
 
 '
-'   VoxelUnit
+'   VoxelSize: voxel resolution for 3 dimensions
+'
+class VoxelSize {
+  X: Float
+  Y: Float
+  Z: Float
+}
+
+'
+'   VoxelUnit: enumeration for unit of VoxelSize
 '
 enum VoxelUnit {
   nanometer
